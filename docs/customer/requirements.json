@@ -14,7 +14,7 @@
         "competitionStatus": "待了解",
         "winProbability": "待评估",
         "keyObstacles": [],
-        "confidenceLevel": "中"
+        "confidenceLevel": "low"
       },
       "keyPersons": [],
       "realNeeds": {
@@ -62,7 +62,7 @@
         { "area": "销售跟进", "description": "跟进没有记录，新人接手不知道历史沟通内容，客户体验差", "severity": "高", "source": "用户描述" },
         { "area": "对账结算", "description": "代理、买手店对账全靠人工，月底对账头疼，容易出错扯皮", "severity": "高", "source": "用户描述" },
         { "area": "业绩分析", "description": "业绩看不清楚，无法按销售/渠道/产品多维度分析，数据滞后", "severity": "中", "source": "用户描述" },
-        { "area": "库存管理", "description": "多款式多渠道，库存数据不透明，调货补货靠经验[假设待验证]", "severity": "中", "source": "行业痛点库" }
+        { "area": "库存管理", "description": "多款式多渠道，库存数据不透明，调货补货靠经验", "severity": "中", "source": "行业痛点库（推演）" }
       ],
       "expectedOutcomes": ["客户信息统一管理，跟进记录可查", "业绩实时可视化，老板一眼看清", "对账自动化，月底不再加班对账", "销售离职平稳交接，客户资产归公司"]
     },
@@ -72,10 +72,10 @@
         "id": "N001",
         "category": "crm",
         "title": "客户信息统一管理",
-        "description": "将分散在Excel和微信的客户信息统一录入系统，包括代理商、买手店、直营店客户档案，支持联系人、地址、合作历史、结算方式等字段",
+        "description": "将分散在Excel和微信的客户信息统一录入系统，包括代理商、买手店、直营店客户档案，支持联系人、地址、合作历史、结算方式等字段[推演]",
         "priority": "must-have",
         "source": "customer-stated",
-        "confidence": "high",
+        "confidence": "low",
         "status": "active",
         "acceptanceCriteria": ["支持客户分类（代理/买手店/直营）", "支持多联系人管理", "支持客户标签和分级"]
       },
@@ -83,10 +83,10 @@
         "id": "N002",
         "category": "crm",
         "title": "销售跟进记录",
-        "description": "每次拜访、沟通、打电话后记录跟进内容，支持按客户查询历史跟进记录，解决新人接手不知道历史沟通内容的问题",
+        "description": "每次拜访、沟通、打电话后记录跟进内容，支持按客户查询历史跟进记录，解决新人接手不知道历史沟通内容的问题[推演]",
         "priority": "must-have",
         "source": "customer-stated",
-        "confidence": "high",
+        "confidence": "low",
         "status": "active",
         "acceptanceCriteria": ["支持快速记录跟进", "支持按客户查询历史", "支持跟进提醒"]
       },
@@ -94,10 +94,10 @@
         "id": "N003",
         "category": "analytics",
         "title": "多维度业绩看板",
-        "description": "按销售个人、渠道类型（代理/买手店/直营店）、时间段自动统计业绩，支持老板一眼看清谁卖了多少、哪个渠道好",
+        "description": "按销售个人、渠道类型（代理/买手店/直营店）、时间段自动统计业绩，支持老板一眼看清谁卖了多少、哪个渠道好[推演]",
         "priority": "must-have",
         "source": "customer-stated",
-        "confidence": "high",
+        "confidence": "low",
         "status": "active",
         "acceptanceCriteria": ["按销售/渠道/时间段多维统计", "老板手机端可随时查看", "支持数据导出"]
       },
@@ -105,10 +105,10 @@
         "id": "N004",
         "category": "finance",
         "title": "渠道对账自动化",
-        "description": "支持代理、买手店按月自动生成对账单，包含订单、出货、退换货、应收款明细，减少月底人工对账工作量",
+        "description": "支持代理、买手店按月自动生成对账单，包含订单、出货、退换货、应收款明细，减少月底人工对账工作量[推演]",
         "priority": "must-have",
         "source": "customer-stated",
-        "confidence": "high",
+        "confidence": "low",
         "status": "active",
         "acceptanceCriteria": ["支持渠道账单自动生成", "支持在线对账确认", "支持对账单导出"]
       },
@@ -116,10 +116,10 @@
         "id": "N005",
         "category": "crm",
         "title": "移动端支持",
-        "description": "销售外出拜访时可通过手机查看客户信息、记录跟进、提交数据，支持移动办公场景",
+        "description": "销售外出拜访时可通过手机查看客户信息、记录跟进、提交数据，支持移动办公场景[推演]",
         "priority": "should-have",
         "source": "profile-inference",
-        "confidence": "medium",
+        "confidence": "low",
         "status": "active",
         "acceptanceCriteria": ["支持手机端查看客户", "支持快速记录跟进", "支持离线缓存"]
       },
@@ -127,10 +127,10 @@
         "id": "N006",
         "category": "sales",
         "title": "价格管理",
-        "description": "不同渠道（代理/买手店/直营）可能有不同报价策略，系统支持渠道价格体系管理，历史报价可查",
+        "description": "不同渠道（代理/买手店/直营）可能有不同报价策略，系统支持渠道价格体系管理，历史报价可查[推演]",
         "priority": "should-have",
         "source": "industry-best-practice",
-        "confidence": "medium",
+        "confidence": "low",
         "status": "active",
         "acceptanceCriteria": ["支持渠道差异化定价", "支持历史报价查询", "支持批量报价"]
       },
@@ -138,18 +138,40 @@
         "id": "N007",
         "category": "crm",
         "title": "客户拜访计划",
-        "description": "支持制定客户拜访计划，设置拜访提醒，避免重要客户长期未联系",
+        "description": "支持制定客户拜访计划，设置拜访提醒，避免重要客户长期未联系[推演]",
         "priority": "should-have",
         "source": "industry-best-practice",
-        "confidence": "medium",
+        "confidence": "low",
         "status": "active",
         "acceptanceCriteria": ["支持月度拜访计划", "支持拜访提醒", "支持拜访记录自动生成"]
       },
       {
         "id": "N008",
+        "category": "crm",
+        "title": "离职交接流程",
+        "description": "销售离职时，其客户可一键转移给其他销售，历史跟进记录保留，解决客户资源归公司所有的问题[推演]",
+        "priority": "must-have",
+        "source": "customer-stated",
+        "confidence": "low",
+        "status": "active",
+        "acceptanceCriteria": ["支持客户批量转移", "支持交接清单生成", "支持历史记录完整保留"]
+      },
+      {
+        "id": "N009",
+        "category": "finance",
+        "title": "应收款管理",
+        "description": "跟踪代理、买手店的应收款状态，支持账期管理，提醒即将到期的应收款，降低坏账风险[推演]",
+        "priority": "should-have",
+        "source": "industry-best-practice",
+        "confidence": "low",
+        "status": "active",
+        "acceptanceCriteria": ["支持应收款台账", "支持账期提醒", "支持逾期预警"]
+      },
+      {
+        "id": "N010",
         "category": "inventory",
         "title": "库存查询（基础）",
-        "description": "销售可查询产品库存情况，支持向客户确认货期[假设待验证]",
+        "description": "销售可查询产品库存情况，支持向客户确认货期[推演]",
         "priority": "nice-to-have",
         "source": "industry-best-practice",
         "confidence": "low",
@@ -163,19 +185,22 @@
         "role": "老板/老板娘",
         "responsibilities": ["查看业绩报表", "审批对账单", "管理客户分配"],
         "painPoints": ["业绩数据看不清", "对账太慢"],
-        "frequency": "每日"
+        "frequency": "每日",
+        "confidence": "low"
       },
       {
         "role": "销售",
         "responsibilities": ["客户管理", "跟进记录", "提交订单"],
         "painPoints": ["信息分散难找", "重复沟通"],
-        "frequency": "每日"
+        "frequency": "每日",
+        "confidence": "low"
       },
       {
         "role": "财务/对账人员",
         "responsibilities": ["渠道对账", "应收款管理"],
         "painPoints": ["人工对账工作量大", "容易出错"],
-        "frequency": "每月对账周期"
+        "frequency": "每月对账周期",
+        "confidence": "low"
       }
     ],
 
@@ -184,7 +209,8 @@
         "客户信息管理",
         "销售跟进记录",
         "业绩看板",
-        "渠道对账"
+        "渠道对账",
+        "离职交接"
       ],
       "outOfScope": [
         "进销存/库存管理（暂不涉及）",
@@ -203,8 +229,8 @@
         }
       ],
       "priorityMatrix": [
-        { "category": "核心功能", "priority": "P0", "items": ["客户管理", "跟进记录", "业绩看板", "渠道对账"] },
-        { "category": "增强功能", "priority": "P1", "items": ["移动端", "价格管理", "拜访计划"] },
+        { "category": "核心功能", "priority": "P0", "items": ["客户管理", "跟进记录", "业绩看板", "渠道对账", "离职交接"] },
+        { "category": "增强功能", "priority": "P1", "items": ["移动端", "价格管理", "拜访计划", "应收款管理"] },
         { "category": "可选功能", "priority": "P2", "items": ["库存查询"] }
       ]
     },
@@ -236,7 +262,7 @@
         "deploymentConstraints": ["云端SaaS优先，移动端优先"]
       },
       "organizational": {
-        "approvalProcess": "老板直接决策[假设待验证]",
+        "approvalProcess": "老板直接决策[推演]",
         "changeManagement": "",
         "vendorPolicies": [],
         "complianceRequirements": []
@@ -274,8 +300,8 @@
 
     "risksAndAssumptions": {
       "risks": [
-        { "risk": "代理/买手店习惯微信沟通，推广初期可能存在使用阻力", "impact": "中", "mitigation": "优先让销售使用，对账由内部处理" },
-        { "risk": "老板关注数据安全，担心云端存储", "impact": "低", "mitigation": "强调数据加密和备份机制" }
+        { "risk": "代理/买手店习惯微信沟通，推广初期可能存在使用阻力", "impact": "中", "mitigation": "优先让销售使用，对账由内部处理[推演]" },
+        { "risk": "老板关注数据安全，担心云端存储", "impact": "低", "mitigation": "强调数据加密和备份机制[推演]" }
       ],
       "assumptions": [
         "老板最关注业绩可视化和对账自动化",
@@ -325,17 +351,17 @@
     ],
 
     "completionRate": {
-      "overall": 50,
+      "overall": 40,
       "byCategory": {
         "业务背景": 80,
-        "功能需求": 60,
-        "用户角色": 50,
-        "项目范围": 40,
-        "约束条件": 20,
-        "成功标准": 40,
-        "商务条件": 20
+        "功能需求": 40,
+        "用户角色": 30,
+        "项目范围": 30,
+        "约束条件": 10,
+        "成功标准": 30,
+        "商务条件": 10
       },
-      "blockers": ["预算未确认", "决策人未明确", "对账规则待了解"]
+      "blockers": ["预算未确认", "决策人未明确", "对账规则待了解", "置信度低（冷启动推演模式）"]
     }
   },
 
@@ -343,6 +369,7 @@
     "createdAt": "2026-04-03T00:00:00.000Z",
     "updatedAt": "2026-04-03T00:00:00.000Z",
     "createdBy": "AI",
-    "version": "1.0"
+    "version": "v0.1",
+    "mode": "cold-start"
   }
 }
