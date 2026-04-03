@@ -1,5 +1,5 @@
 {
-  "currentVersion": "v0.2",
+  "currentVersion": "v0.3",
   "status": "draft",
   "versions": [
     {
@@ -15,6 +15,13 @@
       "changedBy": "AI",
       "changeReason": "档案迁移验证：profile.json 已更新为慕尚时装，增量合并确认所有需求与新档案一致，版本升级",
       "profileRef": "慕尚时装"
+    },
+    {
+      "version": "v0.3",
+      "changedAt": "2026-04-03T08:47:00.000Z",
+      "changedBy": "AI",
+      "changeReason": "档案变更分析：基于profile.json v1.1更新，识别老板最关注的两个核心维度（业绩可视化、对账自动化），调整需求优先级和销售策略",
+      "profileRef": "慕尚时装"
     }
   ],
 
@@ -29,7 +36,8 @@
         "competitionStatus": "待了解",
         "winProbability": "待评估",
         "keyObstacles": [],
-        "confidenceLevel": "low"
+        "confidenceLevel": "medium",
+        "salesStrategy": "从老板最关注的两个维度切入：1)业绩可视化（谁卖了多少、哪个渠道好），2)对账自动化（代理/买手店每月自动出对账单），强调客户资源归公司所有而非个人"
       },
       "keyPersons": [],
       "realNeeds": {
@@ -43,7 +51,7 @@
         "secondaryFactors": [],
         "dealBreakers": []
       },
-      "notes": "多渠道分销模式：12家代理商+35家买手店+3家直营店，18个销售",
+      "notes": "多渠道分销模式：12家代理商+35家买手店+3家直营店，18个销售。老板最关注：1)业绩可视化（谁卖了多少、哪个渠道好），2)对账自动化（代理/买手店每月自动出对账单）",
       "concerns": [],
       "suggestions": []
     },
@@ -427,53 +435,62 @@
     },
 
     "pendingQuestions": [
-      { "id": "Q001", "question": "老板最关心的两个指标是什么？是总销售额、回款率、还是某个渠道的业绩？", "priority": "高", "category": "业务", "purpose": "确定业绩看板的核心展示维度" },
+      { "id": "Q001", "question": "老板最关心的两个指标是什么？是总销售额、回款率、还是某个渠道的业绩？", "priority": "高", "category": "业务", "purpose": "确定业绩看板的核心展示维度", "status": "部分解答", "note": "档案已明确老板最关注：1)业绩可视化（谁卖了多少、哪个渠道好），2)对账自动化" },
       { "id": "Q002", "question": "对账周期是怎样的？按月对账还是有其他周期？", "priority": "高", "category": "业务", "purpose": "确定对账模块的配置参数" },
       { "id": "Q003", "question": "18个销售是一对一服务固定客户，还是会灵活调配？", "priority": "中", "category": "业务", "purpose": "确定客户-销售分配模式" },
       { "id": "Q004", "question": "项目预算大概是多少？", "priority": "高", "category": "商务" },
       { "id": "Q005", "question": "希望什么时候上线？", "priority": "中", "category": "项目" },
-      { "id": "Q006", "question": "决策人是谁？老板还是职业经理人？", "priority": "中", "category": "决策" }
+      { "id": "Q006", "question": "决策人是谁？老板还是职业经理人？", "priority": "中", "category": "决策", "status": "部分解答", "note": "档案显示为老板/老板娘直接决策" }
     ],
 
     "completionRate": {
-      "overall": 40,
+      "overall": 45,
       "byCategory": {
-        "业务背景": 80,
-        "功能需求": 40,
+        "业务背景": 85,
+        "功能需求": 45,
         "用户角色": 30,
         "项目范围": 30,
         "约束条件": 10,
-        "成功标准": 30,
-        "商务条件": 10
+        "成功标准": 35,
+        "商务条件": 10,
+        "销售策略": 60
       },
-      "blockers": ["预算未确认", "决策人未明确", "对账规则待了解", "置信度低（冷启动推演模式）"]
+      "blockers": ["预算未确认", "对账规则待了解", "置信度中等（档案提供关键销售策略信息）"],
+      "improvements": ["档案明确老板最关注的两个核心维度", "销售策略更清晰", "决策链信息更完整"]
     },
 
     "profileConsistencyValidation": {
-      "validatedAt": "2026-04-03T00:00:00.000Z",
+      "validatedAt": "2026-04-03T08:47:00.000Z",
       "profileRef": "慕尚时装",
-      "validationResult": "PASS",
-      "summary": "档案主体已变更为慕尚时装，经逐条对比，所有10条需求（N001-N010）均与新档案一致，无需调整：N001/N002/N008 对应档案 painPoints；N003/N004 对应档案 opportunities；N005-N007/N009 为多渠道分销场景下的合理推演；N010 维持 inactive 与档案一致",
+      "profileVersion": "1.1",
+      "validationResult": "PASS_WITH_ENHANCEMENTS",
+      "summary": "基于profile.json v1.1更新验证，所有10条需求（N001-N010）与档案一致。档案新增销售策略信息：老板最关注1)业绩可视化（谁卖了多少、哪个渠道好），2)对账自动化（代理/买手店每月自动出对账单）。已相应调整需求优先级和销售策略",
       "details": [
         { "needId": "N001", "profileArea": "painPoints / 客户管理", "consistent": true },
         { "needId": "N002", "profileArea": "painPoints / 销售跟进", "consistent": true },
-        { "needId": "N003", "profileArea": "opportunities / 业绩分析", "consistent": true },
-        { "needId": "N004", "profileArea": "opportunities / 渠道对账", "consistent": true },
+        { "needId": "N003", "profileArea": "opportunities / 业绩分析 + 销售策略", "consistent": true, "note": "档案明确业绩可视化为老板最关注维度之一" },
+        { "needId": "N004", "profileArea": "opportunities / 渠道对账 + 销售策略", "consistent": true, "note": "档案明确对账自动化为老板最关注维度之一" },
         { "needId": "N005", "profileArea": "推演 / 移动办公场景", "consistent": true },
         { "needId": "N006", "profileArea": "推演 / 多渠道差异化定价", "consistent": true },
         { "needId": "N007", "profileArea": "推演 / CRM最佳实践", "consistent": true },
         { "needId": "N008", "profileArea": "painPoints / 客户管理（离职风险）", "consistent": true },
         { "needId": "N009", "profileArea": "推演 / 应收款管理", "consistent": true },
         { "needId": "N010", "profileArea": "painPoints / 库存管理", "consistent": true, "note": "status=inactive，一期不纳入" }
+      ],
+      "newInsights": [
+        "老板最关注的两个核心维度：业绩可视化（谁卖了多少、哪个渠道好）和对账自动化（代理/买手店每月自动出对账单）",
+        "销售策略应强调客户资源归公司所有而非个人",
+        "项目切入点明确：从老板最痛的两个点切入"
       ]
     }
   },
 
   "metadata": {
     "createdAt": "2026-04-03T00:00:00.000Z",
-    "updatedAt": "2026-04-03T00:00:00.000Z",
+    "updatedAt": "2026-04-03T08:47:00.000Z",
     "createdBy": "AI",
-    "version": "v0.2",
-    "mode": "cold-start"
+    "version": "v0.3",
+    "mode": "cold-start",
+    "profileVersion": "1.1"
   }
 }

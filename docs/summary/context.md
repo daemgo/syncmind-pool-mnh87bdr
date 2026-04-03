@@ -30,3 +30,13 @@
 - 模块组件：src/components/{module}/（filter、table、detail、form-dialog）
 - Mock 数据：src/mock/{module}.ts
 - 类型定义：src/types/{module}.ts
+---
+### 2026-04-03
+**Skills**: /requirements, Agent
+**变更**: docs/customer/requirements.json
+
+- 对比档案变更（v1.0→v1.1），识别销售策略和切入点更新
+- 更新需求分析至v0.3，增强销售策略对齐
+- 完成度从40%提升至45%
+
+**待跟进**: 用户未提供新素材，需求仍为推演模式
