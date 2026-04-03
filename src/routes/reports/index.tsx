@@ -8,14 +8,14 @@ export const Route = createFileRoute("/reports/")({
 
 export function ReportsPage() {
   return (
-    <div className="p-6 space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold">分析报表</h1>
-        <p className="text-sm text-muted-foreground mt-1">
+    <div className="page-section">
+      <div className="page-header">
+        <h1 className="page-title">分析报表</h1>
+        <p className="page-description">
           设备OEE、故障率、维护成本等多维度分析
         </p>
       </div>
-      <Card>
+      <Card className="card-hover">
         <CardHeader>
           <CardTitle className="text-base">OEE / 故障率 / 维护成本分析</CardTitle>
         </CardHeader>

@@ -47,11 +47,11 @@ export function EquipmentPage() {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="page-section">
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-semibold">设备台账</h1>
-          <p className="text-sm text-muted-foreground mt-1">
+        <div className="page-header">
+          <h1 className="page-title">设备台账</h1>
+          <p className="page-description">
             管理全厂设备档案，记录设备全生命周期
           </p>
         </div>

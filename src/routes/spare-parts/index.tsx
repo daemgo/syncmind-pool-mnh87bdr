@@ -69,11 +69,11 @@ export function SparePartPage() {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="page-section">
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-semibold">备品备件</h1>
-          <p className="text-sm text-muted-foreground mt-1">
+        <div className="page-header">
+          <h1 className="page-title">备品备件</h1>
+          <p className="page-description">
             备件库存台账，关联设备BOM，安全库存预警
           </p>
         </div>

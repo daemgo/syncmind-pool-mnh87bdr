@@ -42,7 +42,9 @@ function RootComponent() {
         <div className="flex min-h-screen">
           <Sidebar />
           <main className="flex-1 ml-60 min-h-screen">
-            <Outlet />
+            <div className="content-container py-6">
+              <Outlet />
+            </div>
           </main>
         </div>
         <Scripts />

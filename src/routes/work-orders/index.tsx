@@ -50,11 +50,11 @@ export function WorkOrderPage() {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="page-section">
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-semibold">维修工单</h1>
-          <p className="text-sm text-muted-foreground mt-1">
+        <div className="page-header">
+          <h1 className="page-title">维修工单</h1>
+          <p className="page-description">
             管理工单从创建到归档的全流程闭环
           </p>
         </div>

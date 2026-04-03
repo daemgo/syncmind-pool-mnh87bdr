@@ -16,6 +16,8 @@ import {
   Tooltip,
   ResponsiveContainer,
   Cell,
+  Area,
+  AreaChart,
 } from "recharts";
 import {
   Cpu,
@@ -93,17 +95,17 @@ export function DashboardPage() {
   const currentOEE = oeeData[oeeData.length - 1].oee;
 
   return (
-    <div className="p-6 space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold">监控大屏</h1>
-        <p className="text-sm text-muted-foreground mt-1">
+    <div className="page-section">
+      <div className="page-header">
+        <h1 className="page-title">监控大屏</h1>
+        <p className="page-description">
           实时掌握全厂设备运行状态
         </p>
       </div>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="stat-card">
+        <Card className="stat-card card-hover">
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
@@ -122,7 +124,7 @@ export function DashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="stat-card">
+        <Card className="stat-card card-hover">
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
@@ -144,7 +146,7 @@ export function DashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="stat-card">
+        <Card className="stat-card card-hover">
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
@@ -162,7 +164,7 @@ export function DashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="stat-card">
+        <Card className="stat-card card-hover">
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
@@ -199,52 +201,72 @@ export function DashboardPage() {
 
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card>
+        <Card className="card-hover">
           <CardHeader>
             <CardTitle className="text-base">OEE 趋势（近6个月）</CardTitle>
           </CardHeader>
           <CardContent>
             <ChartContainer config={chartConfig} className="h-[280px] w-full">
-              <LineChart data={oeeData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="month" fontSize={12} tickLine={false} />
-                <YAxis fontSize={12} tickLine={false} domain={[60, 100]} />
+              <AreaChart data={oeeData}>
+                <defs>
+                  <linearGradient id="oeeGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="var(--color-chart-1)" stopOpacity={0.3}/>
+                    <stop offset="95%" stopColor="var(--color-chart-1)" stopOpacity={0}/>
+                  </linearGradient>
+                </defs>
+                <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
+                <XAxis dataKey="month" fontSize={12} tickLine={false} axisLine={false} />
+                <YAxis fontSize={12} tickLine={false} axisLine={false} domain={[60, 100]} />
                 <Tooltip
-                  contentStyle={{ borderRadius: "8px", border: "1px solid var(--border)" }}
+                  contentStyle={{
+                    borderRadius: "8px",
+                    border: "1px solid var(--border)",
+                    backgroundColor: "var(--card)",
+                    boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+                  }}
+                  cursor={{ stroke: "var(--primary)", strokeWidth: 1, strokeDasharray: "4 4" }}
                 />
-                <Line
+                <Area
                   type="monotone"
                   dataKey="oee"
                   stroke="var(--color-chart-1)"
                   strokeWidth={2}
+                  fill="url(#oeeGradient)"
                   dot={{ fill: "var(--color-chart-1)", r: 4 }}
-                  activeDot={{ r: 6 }}
+                  activeDot={{ r: 6, stroke: "var(--primary-foreground)", strokeWidth: 2 }}
                 />
-              </LineChart>
+              </AreaChart>
             </ChartContainer>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="card-hover">
           <CardHeader>
             <CardTitle className="text-base">设备故障次数排名</CardTitle>
           </CardHeader>
           <CardContent>
             <ChartContainer config={chartConfig} className="h-[280px] w-full">
               <BarChart data={faultData} layout="vertical">
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis type="number" fontSize={12} tickLine={false} />
+                <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
+                <XAxis type="number" fontSize={12} tickLine={false} axisLine={false} />
                 <YAxis
                   dataKey="name"
                   type="category"
                   fontSize={12}
                   tickLine={false}
+                  axisLine={false}
                   width={100}
                 />
                 <Tooltip
-                  contentStyle={{ borderRadius: "8px", border: "1px solid var(--border)" }}
+                  contentStyle={{
+                    borderRadius: "8px",
+                    border: "1px solid var(--border)",
+                    backgroundColor: "var(--card)",
+                    boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+                  }}
+                  cursor={{ fill: "var(--accent)" }}
                 />
-                <Bar dataKey="faults" radius={[0, 4, 4, 0]}>
+                <Bar dataKey="faults" radius={[0, 4, 4, 0]} maxBarSize={24}>
                   {faultData.map((entry, index) => (
                     <Cell
                       key={entry.name}
@@ -265,11 +287,11 @@ export function DashboardPage() {
       </div>
 
       {/* Recent Work Orders */}
-      <Card>
+      <Card className="card-hover">
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle className="text-base">最新工单</CardTitle>
-            <Link to="/work-orders" className="text-sm text-primary hover:underline">
+            <Link to="/work-orders" className="text-sm text-primary hover:underline transition-opacity">
               查看全部
             </Link>
           </div>
@@ -279,7 +301,7 @@ export function DashboardPage() {
             {workOrderMock.slice(0, 5).map((wo) => (
               <div
                 key={wo.id}
-                className="flex items-center justify-between py-2 border-b last:border-0"
+                className="list-item"
               >
                 <div className="flex items-center gap-3 min-w-0">
                   <span className="font-mono text-xs text-muted-foreground shrink-0">

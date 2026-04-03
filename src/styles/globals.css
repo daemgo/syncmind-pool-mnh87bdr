@@ -177,4 +177,46 @@
   .stat-card:hover {
     @apply shadow-md -translate-y-0.5;
   }
+
+  /* Content container - max width for readability */
+  .content-container {
+    @apply max-w-[1400px] mx-auto;
+  }
+
+  /* Page section spacing */
+  .page-section {
+    @apply space-y-6;
+  }
+
+  /* Page header */
+  .page-header {
+    @apply flex flex-col gap-1;
+  }
+
+  .page-title {
+    @apply text-2xl font-semibold tracking-tight;
+  }
+
+  .page-description {
+    @apply text-sm text-muted-foreground;
+  }
+
+  /* Card enhancements */
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-md hover:border-primary/20;
+  }
+
+  /* List item divider */
+  .list-item {
+    @apply flex items-center justify-between py-3 border-b last:border-0 transition-colors;
+  }
+
+  .list-item:hover {
+    @apply bg-muted/30 -mx-4 px-4 rounded-lg;
+  }
+
+  /* Chart tooltip */
+  .recharts-tooltip-wrapper {
+    filter: drop-shadow(0 4px 6px -1px rgb(0 0 0 / 0.1));
+  }
 }

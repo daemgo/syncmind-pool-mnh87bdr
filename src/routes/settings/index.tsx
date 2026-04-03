@@ -8,14 +8,14 @@ export const Route = createFileRoute("/settings/")({
 
 export function SettingsPage() {
   return (
-    <div className="p-6 space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold">系统设置</h1>
-        <p className="text-sm text-muted-foreground mt-1">
+    <div className="page-section">
+      <div className="page-header">
+        <h1 className="page-title">系统设置</h1>
+        <p className="page-description">
           用户管理、权限配置、系统参数设置
         </p>
       </div>
-      <Card>
+      <Card className="card-hover">
         <CardHeader>
           <CardTitle className="text-base">系统配置</CardTitle>
         </CardHeader>

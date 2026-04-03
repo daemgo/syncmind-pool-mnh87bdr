@@ -8,14 +8,14 @@ export const Route = createFileRoute("/integration/")({
 
 export function IntegrationPage() {
   return (
-    <div className="p-6 space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold">西门子系统集成</h1>
-        <p className="text-sm text-muted-foreground mt-1">
+    <div className="page-section">
+      <div className="page-header">
+        <h1 className="page-title">西门子系统集成</h1>
+        <p className="page-description">
           配置与管理西门子数控系统集成点
         </p>
       </div>
-      <Card>
+      <Card className="card-hover">
         <CardHeader>
           <CardTitle className="text-base">集成点配置</CardTitle>
         </CardHeader>
