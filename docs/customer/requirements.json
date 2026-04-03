@@ -1,27 +1,26 @@
 {
   "currentVersion": "v0.1",
   "status": "draft",
-
   "versions": [],
 
   "current": {
     "salesInput": {
       "salesPerson": "",
-      "lastUpdated": "2026-03-25",
+      "lastUpdated": "2026-04-03",
       "overallAssessment": {
-        "customerIntent": "数字化转型深化期，明确表达EAM系统建设需求",
-        "projectUrgency": "正常：26年年底上线，时间充裕",
-        "budgetSituation": "已确认：100万（已审批）",
-        "competitionStatus": "有竞对：在对比SaaS产品与定制开发",
-        "winProbability": "中高：定制开发是我们的机会",
-        "keyObstacles": ["需快速出方案抢占先机", "SaaS产品竞对情况待了解"],
+        "customerIntent": "销售管理软件，解决客户信息分散、跟进无记录、对账麻烦、业绩看不清",
+        "projectUrgency": "高——管理瓶颈已影响业务扩张，需尽快上线",
+        "budgetSituation": "待确认",
+        "competitionStatus": "待了解",
+        "winProbability": "待评估",
+        "keyObstacles": [],
         "confidenceLevel": "中"
       },
       "keyPersons": [],
       "realNeeds": {
-        "explicitNeeds": ["EAM企业资产管理系统"],
-        "implicitNeeds": ["设备维护经验知识化", "预测性维护能力提升"],
-        "suspectedNeeds": ["与现有西门子系统集成", "移动端巡检"],
+        "explicitNeeds": ["销售管理软件", "客户统一管理", "对账自动化", "业绩可视化"],
+        "implicitNeeds": ["销售离职风险规避", "客户资产归公司所有"],
+        "suspectedNeeds": ["移动端支持"],
         "needsNotMentioned": []
       },
       "decisionFactors": {
@@ -29,7 +28,7 @@
         "secondaryFactors": [],
         "dealBreakers": []
       },
-      "notes": "客户处于DCMM认证后的数字化深化期，设备管理是制造企业核心痛点",
+      "notes": "多渠道分销模式：12家代理商+35家买手店+3家直营店，18个销售",
       "concerns": [],
       "suggestions": []
     },
@@ -38,214 +37,206 @@
       "meetings": [],
       "documents": [],
       "communications": [
-        "2026-03-25: 销售反馈客户有EAM系统需求",
-        "2026-03-25: 客户反馈预算100万（已审批），要求26年年底上线，在对比SaaS产品与定制开发"
+        "2026-04-03: 用户描述慕尚时装痛点：客户信息分散在Excel和微信、跟进没记录、对账麻烦、业绩看不清"
       ],
       "observations": []
     },
 
     "background": {
-      "businessContext": "长机科技是国内插齿机细分领域第一，专业生产数控齿轮加工机床。拥有恒温装配车间、整机联机等关键设备，设备维护直接影响产品质量和交付周期",
+      "businessContext": "杭州本土时尚女装企业，成立10年，年销售额8000万。采用代理+买手店+直营多渠道分销模式：12家代理商、35家买手店、3家直营店，共18个销售负责渠道维护",
       "currentChallenges": [
-        "关键设备维护依赖工人经验，缺乏标准化知识沉淀",
-        "预测性维护能力不足，设备故障难以提前预警",
-        "设备台账分散，缺乏统一的资产管理视角"
+        "客户信息分散在Excel和微信里，销售离职风险大",
+        "跟进没有记录，新人接手不知道历史沟通内容",
+        "代理、买手店对账全靠人工，月底对账头疼",
+        "业绩看不清楚，无法按销售/渠道多维度分析"
       ],
-      "triggerEvent": "数字化深化与智能制造升级期，DCMM认证后数据管理意识觉醒",
-      "currentSystems": ["西门子数控系统"],
+      "triggerEvent": "规模已超出Excel+微信能管好的边界，需要规范化管理",
+      "currentSystems": ["Excel", "微信"],
       "currentProcess": {
-        "overview": "现有设备维护流程依赖人工经验，巡检、维修记录纸质化或分散存储",
-        "steps": ["设备故障报修", "维修人员响应", "故障处理", "记录填写"],
-        "bottlenecks": ["维修经验难以传承", "备件库存不透明", "预防性维护计划执行困难"]
+        "overview": "客户信息存Excel，沟通靠微信，对账靠人工，业绩靠手工统计",
+        "steps": ["销售在微信联系客户", "客户信息存Excel", "月底人工对账", "手工汇总业绩"],
+        "bottlenecks": ["信息分散难以统一管理", "历史记录无法追溯", "对账效率低易出错", "业绩数据滞后"]
       },
       "painPoints": [
-        { "area": "设备管理", "description": "恒温装配、整机联机等关键设备维护依赖经验，预测性维护能力不足", "severity": "中", "source": "profile推断" }
+        { "area": "客户管理", "description": "客户信息分散在Excel和微信里，销售离职风险大，客户资源不归公司所有", "severity": "高", "source": "用户描述" },
+        { "area": "销售跟进", "description": "跟进没有记录，新人接手不知道历史沟通内容，客户体验差", "severity": "高", "source": "用户描述" },
+        { "area": "对账结算", "description": "代理、买手店对账全靠人工，月底对账头疼，容易出错扯皮", "severity": "高", "source": "用户描述" },
+        { "area": "业绩分析", "description": "业绩看不清楚，无法按销售/渠道/产品多维度分析，数据滞后", "severity": "中", "source": "用户描述" },
+        { "area": "库存管理", "description": "多款式多渠道，库存数据不透明，调货补货靠经验[假设待验证]", "severity": "中", "source": "行业痛点库" }
       ],
-      "expectedOutcomes": ["建立完整设备台账", "标准化维护流程", "提升设备可用率", "降低意外停机"]
+      "expectedOutcomes": ["客户信息统一管理，跟进记录可查", "业绩实时可视化，老板一眼看清", "对账自动化，月底不再加班对账", "销售离职平稳交接，客户资产归公司"]
     },
 
     "needs": [
       {
         "id": "N001",
-        "category": "设备台账",
-        "title": "设备全生命周期台账管理",
-        "description": "建立覆盖设备采购、安装、调试、运行、维护、报废的全生命周期台账",
+        "category": "crm",
+        "title": "客户信息统一管理",
+        "description": "将分散在Excel和微信的客户信息统一录入系统，包括代理商、买手店、直营店客户档案，支持联系人、地址、合作历史、结算方式等字段",
         "priority": "must-have",
         "source": "customer-stated",
         "confidence": "high",
         "status": "active",
-        "acceptanceCriteria": ["支持设备分类编码", "支持设备技术参数档案", "支持设备位置变动追踪"]
+        "acceptanceCriteria": ["支持客户分类（代理/买手店/直营）", "支持多联系人管理", "支持客户标签和分级"]
       },
       {
         "id": "N002",
-        "category": "维护管理",
-        "title": "预防性维护计划",
-        "description": "基于设备类型和运行时长，自动生成预防性维护计划，支持周期性工单",
+        "category": "crm",
+        "title": "销售跟进记录",
+        "description": "每次拜访、沟通、打电话后记录跟进内容，支持按客户查询历史跟进记录，解决新人接手不知道历史沟通内容的问题",
         "priority": "must-have",
-        "source": "profile-inference",
-        "confidence": "medium",
+        "source": "customer-stated",
+        "confidence": "high",
         "status": "active",
-        "acceptanceCriteria": ["支持按时间/计量值触发", "支持维护模板复用", "支持工单自动生成"]
+        "acceptanceCriteria": ["支持快速记录跟进", "支持按客户查询历史", "支持跟进提醒"]
       },
       {
         "id": "N003",
-        "category": "维修管理",
-        "title": "维修工单全流程管理",
-        "description": "故障报修、派工、执行、验收、归档的闭环管理",
+        "category": "analytics",
+        "title": "多维度业绩看板",
+        "description": "按销售个人、渠道类型（代理/买手店/直营店）、时间段自动统计业绩，支持老板一眼看清谁卖了多少、哪个渠道好",
         "priority": "must-have",
-        "source": "profile-inference",
-        "confidence": "medium",
+        "source": "customer-stated",
+        "confidence": "high",
         "status": "active",
-        "acceptanceCriteria": ["支持移动端报修", "支持工单状态追踪", "支持维修知识库沉淀"]
+        "acceptanceCriteria": ["按销售/渠道/时间段多维统计", "老板手机端可随时查看", "支持数据导出"]
       },
       {
         "id": "N004",
-        "category": "备件管理",
-        "title": "备品备件库存管理",
-        "description": "备件入库、出库、库存预警、采购建议",
-        "priority": "should-have",
-        "source": "profile-inference",
-        "confidence": "medium",
+        "category": "finance",
+        "title": "渠道对账自动化",
+        "description": "支持代理、买手店按月自动生成对账单，包含订单、出货、退换货、应收款明细，减少月底人工对账工作量",
+        "priority": "must-have",
+        "source": "customer-stated",
+        "confidence": "high",
         "status": "active",
-        "acceptanceCriteria": ["支持备件与设备关联", "支持安全库存预警", "支持消耗统计分析"]
+        "acceptanceCriteria": ["支持渠道账单自动生成", "支持在线对账确认", "支持对账单导出"]
       },
       {
         "id": "N005",
-        "category": "预测性维护",
-        "title": "设备状态监测与预警",
-        "description": "结合物联网数据，实现关键设备状态监控和异常预警",
-        "priority": "should-have",
-        "source": "profile-inference",
-        "confidence": "low",
-        "status": "active",
-        "acceptanceCriteria": ["支持设备运行数据采集", "支持阈值预警", "支持趋势分析"]
-      },
-      {
-        "id": "N006",
-        "category": "系统集成",
-        "title": "与西门子数控系统集成",
-        "description": "从西门子系统获取设备运行数据，实现数据驱动的设备管理",
-        "priority": "should-have",
-        "source": "profile-inference",
-        "confidence": "low",
-        "status": "active",
-        "acceptanceCriteria": ["支持标准接口对接", "支持数据实时同步", "支持数据清洗转换"]
-      },
-      {
-        "id": "N007",
-        "category": "移动应用",
-        "title": "移动端巡检与报修",
-        "description": "支持手机/平板进行设备巡检、故障报修、工单处理",
-        "priority": "nice-to-have",
-        "source": "sales-observation",
-        "confidence": "low",
-        "status": "active",
-        "acceptanceCriteria": ["支持离线操作", "支持扫码定位", "支持拍照附件"]
-      },
-      {
-        "id": "N008",
-        "category": "报表分析",
-        "title": "设备管理分析报表",
-        "description": "设备OEE分析、故障分析、维护成本分析、备件消耗分析",
+        "category": "crm",
+        "title": "移动端支持",
+        "description": "销售外出拜访时可通过手机查看客户信息、记录跟进、提交数据，支持移动办公场景",
         "priority": "should-have",
         "source": "profile-inference",
         "confidence": "medium",
         "status": "active",
-        "acceptanceCriteria": ["支持自定义报表", "支持数据可视化", "支持导出"]
+        "acceptanceCriteria": ["支持手机端查看客户", "支持快速记录跟进", "支持离线缓存"]
+      },
+      {
+        "id": "N006",
+        "category": "sales",
+        "title": "价格管理",
+        "description": "不同渠道（代理/买手店/直营）可能有不同报价策略，系统支持渠道价格体系管理，历史报价可查",
+        "priority": "should-have",
+        "source": "industry-best-practice",
+        "confidence": "medium",
+        "status": "active",
+        "acceptanceCriteria": ["支持渠道差异化定价", "支持历史报价查询", "支持批量报价"]
+      },
+      {
+        "id": "N007",
+        "category": "crm",
+        "title": "客户拜访计划",
+        "description": "支持制定客户拜访计划，设置拜访提醒，避免重要客户长期未联系",
+        "priority": "should-have",
+        "source": "industry-best-practice",
+        "confidence": "medium",
+        "status": "active",
+        "acceptanceCriteria": ["支持月度拜访计划", "支持拜访提醒", "支持拜访记录自动生成"]
+      },
+      {
+        "id": "N008",
+        "category": "inventory",
+        "title": "库存查询（基础）",
+        "description": "销售可查询产品库存情况，支持向客户确认货期[假设待验证]",
+        "priority": "nice-to-have",
+        "source": "industry-best-practice",
+        "confidence": "low",
+        "status": "inactive",
+        "acceptanceCriteria": ["支持按款式/尺码查询库存", "支持库存预警"]
       }
     ],
 
     "users": [
       {
-        "role": "设备管理员",
-        "responsibilities": ["设备台账维护", "维护计划制定", "报表分析"],
-        "painPoints": ["数据分散难以统计", "手工工作量大"],
+        "role": "老板/老板娘",
+        "responsibilities": ["查看业绩报表", "审批对账单", "管理客户分配"],
+        "painPoints": ["业绩数据看不清", "对账太慢"],
         "frequency": "每日"
       },
       {
-        "role": "维修工程师",
-        "responsibilities": ["故障处理", "预防性维护执行"],
-        "painPoints": ["维修经验难以查询", "工单流转不透明"],
+        "role": "销售",
+        "responsibilities": ["客户管理", "跟进记录", "提交订单"],
+        "painPoints": ["信息分散难找", "重复沟通"],
         "frequency": "每日"
       },
       {
-        "role": "设备操作工",
-        "responsibilities": ["日常点检", "故障报修"],
-        "painPoints": ["报修流程繁琐", "进度无法追踪"],
-        "frequency": "每班次"
-      },
-      {
-        "role": "采购/仓储",
-        "responsibilities": ["备件采购", "库存管理"],
-        "painPoints": ["备件需求不明确", "库存积压与缺货并存"],
-        "frequency": "每周"
+        "role": "财务/对账人员",
+        "responsibilities": ["渠道对账", "应收款管理"],
+        "painPoints": ["人工对账工作量大", "容易出错"],
+        "frequency": "每月对账周期"
       }
     ],
 
     "scope": {
       "inScope": [
-        "设备台账管理",
-        "维护计划管理",
-        "维修工单管理",
-        "备品备件管理",
-        "设备报表分析"
+        "客户信息管理",
+        "销售跟进记录",
+        "业绩看板",
+        "渠道对账"
       ],
       "outOfScope": [
-        "生产计划管理",
-        "质量管理",
-        "人力资源管理"
+        "进销存/库存管理（暂不涉及）",
+        "生产管理",
+        "财务管理（除对账外）"
       ],
       "futureScope": [
-        "预测性维护（二期）",
-        "数字孪生（远期）"
+        "库存查询（可选）",
+        "订单管理（可选）"
       ],
       "phases": [
         {
           "phase": "一期",
-          "focus": "基础设备台账+工单管理",
-          "timeline": "待确认"
-        },
-        {
-          "phase": "二期",
-          "focus": "预测性维护+移动应用",
+          "focus": "CRM基础+业绩看板+渠道对账",
           "timeline": "待确认"
         }
       ],
       "priorityMatrix": [
-        { "category": "基础管理", "priority": "P0", "items": ["设备台账", "工单管理"] },
-        { "category": "维护优化", "priority": "P1", "items": ["预防性维护", "备件管理"] },
-        { "category": "智能升级", "priority": "P2", "items": ["预测性维护", "移动应用"] }
+        { "category": "核心功能", "priority": "P0", "items": ["客户管理", "跟进记录", "业绩看板", "渠道对账"] },
+        { "category": "增强功能", "priority": "P1", "items": ["移动端", "价格管理", "拜访计划"] },
+        { "category": "可选功能", "priority": "P2", "items": ["库存查询"] }
       ]
     },
 
     "constraints": {
       "budget": {
-        "total": "100万（已审批）",
+        "total": "",
         "breakdown": [],
         "paymentTerms": "",
-        "flexibility": "已审批，资金到位"
+        "flexibility": ""
       },
       "timeline": {
-        "expectedStart": "待确认",
-        "expectedGoLive": "2026年12月31日",
-        "hardDeadline": "2026年12月31日",
-        "reason": "客户要求26年年底之前上线",
-        "flexibility": "正常"
+        "expectedStart": "",
+        "expectedGoLive": "",
+        "hardDeadline": "",
+        "reason": "",
+        "flexibility": ""
       },
       "resources": {
-        "clientTeam": ["待确认"],
+        "clientTeam": [],
         "availability": "",
         "constraints": []
       },
       "technical": {
-        "existingInfrastructure": ["西门子数控系统"],
+        "existingInfrastructure": ["Excel", "微信"],
         "mandatoryTech": [],
         "prohibitedTech": [],
         "networkConstraints": [],
-        "deploymentConstraints": ["需兼容现有IT架构"]
+        "deploymentConstraints": ["云端SaaS优先，移动端优先"]
       },
       "organizational": {
-        "approvalProcess": "技术部门提出需求→生产/质量部门会签→采购部门评估→高层审批决策",
+        "approvalProcess": "老板直接决策[假设待验证]",
         "changeManagement": "",
         "vendorPolicies": [],
         "complianceRequirements": []
@@ -254,106 +245,103 @@
 
     "successCriteria": {
       "businessCriteria": [
-        "设备意外停机时间降低20%以上",
-        "预防性维护覆盖率提升至80%",
-        "备件库存周转率提升"
+        "18个销售能统一在系统中管理客户信息，不再依赖个人手机/微信",
+        "老板能实时看到每个销售的业绩数据",
+        "月底对账时间从人工2-3天缩短到系统自动生成",
+        "新人接手时可查询客户历史跟进记录"
       ],
       "technicalCriteria": [
         "系统可用率≥99.5%",
-        "工单响应时间缩短50%",
-        "设备数据准确率≥99%"
+        "移动端响应流畅",
+        "数据可导出"
       ],
       "userCriteria": [
         "用户上手时间≤1天",
-        "移动端功能使用率≥60%",
+        "销售人员愿意用移动端记录",
         "用户满意度≥80%"
       ],
       "projectCriteria": [
         "按期上线",
-        "数据迁移完整准确",
+        "历史数据迁移完整",
         "关键用户培训完成"
       ],
       "roiExpectation": {
-        "expectedBenefits": ["减少停机损失", "降低维护成本", "延长设备寿命"],
+        "expectedBenefits": ["减少人工对账工作量", "规避销售离职风险", "提升管理效率"],
         "paybackPeriod": "待测算",
-        "quantifiableMetrics": ["设备OEE", "MTBF", "MTTR", "备件周转率"]
+        "quantifiableMetrics": ["对账时间缩短", "客户流失率降低"]
       }
     },
 
     "risksAndAssumptions": {
       "risks": [
-        { "risk": "与西门子系统集成复杂度超预期", "impact": "中", "mitigation": "提前进行技术验证" },
-        { "risk": "用户对新系统接受度低", "impact": "中", "mitigation": "加强培训与试点推广" },
-        { "risk": "历史数据整理工作量巨大", "impact": "低", "mitigation": "分批迁移，先上线后完善" }
+        { "risk": "代理/买手店习惯微信沟通，推广初期可能存在使用阻力", "impact": "中", "mitigation": "优先让销售使用，对账由内部处理" },
+        { "risk": "老板关注数据安全，担心云端存储", "impact": "低", "mitigation": "强调数据加密和备份机制" }
       ],
       "assumptions": [
-        "客户有明确的数字化转型预算支持",
-        "现有设备具备基础的数据采集能力",
-        "客户IT部门能够配合系统集成工作"
+        "老板最关注业绩可视化和对账自动化",
+        "18个销售接受移动端录入，偏好简单易用的界面",
+        "客户愿意将现有Excel数据迁移到系统"
       ],
       "dependencies": [
-        "明确项目负责人和关键用户",
-        "现有设备清单和技术资料完整",
-        "网络基础设施满足系统运行要求"
+        "明确项目负责人",
+        "确认数据迁移范围",
+        "网络环境满足SaaS使用"
       ]
     },
 
     "solutionDirection": {
-      "overallApproach": "客户在对比SaaS与定制开发，定制开发是我们的机会，应快速输出针对性方案",
+      "overallApproach": "轻量化CRM解决方案，解决多渠道分销场景下的客户管理、跟进记录、业绩分析和渠道对账需求",
       "recommendedApproach": {
-        "type": "定制开发（推荐）",
-        "rationale": "客户对定制开发持开放态度，可针对其装备制造业务特点深度定制，与西门子系统深度集成",
+        "type": "SaaS CRM（推荐）",
+        "rationale": "快速上线、移动端优先、简单易用，适合中小型企业",
         "alternatives": [
-          "成熟商业软件+二次开发（备选）",
-          "SaaS订阅（客户在评估，非我方优势）"
+          "私有化部署（可选，需额外讨论）"
         ]
       },
       "technicalDirection": {
-        "architecture": "B/S架构，支持移动端",
-        "deployment": "私有化部署",
-        "techStack": ["待选型"]
+        "architecture": "B/S架构，移动端优先",
+        "deployment": "SaaS云端",
+        "techStack": []
       },
       "implementationStrategy": {
-        "approach": "试点先行，快速迭代",
-        "pilotScope": "总装车间关键设备",
-        "rolloutPlan": "试点→评估→全面推广"
+        "approach": "快速实施，1-2个月上线",
+        "pilotScope": "全功能上线",
+        "rolloutPlan": "培训→数据初始化→上线→优化"
       },
       "nextSteps": [
-        "尽快输出EAM定制开发方案，抢占先机",
-        "明确项目决策链和关键干系人",
-        "了解客户在评估的SaaS产品情况，制定差异化策略",
-        "收集详细设备清单和技术资料"
+        "确认老板核心关注指标",
+        "了解对账周期和结算规则",
+        "确认18个销售的分配模式"
       ]
     },
 
     "pendingQuestions": [
-      { "id": "Q003", "question": "项目决策人和关键干系人是谁？", "priority": "高", "category": "决策" },
-      { "id": "Q004", "question": "客户在评估哪些SaaS产品？进展如何？", "priority": "高", "category": "竞对" },
-      { "id": "Q005", "question": "设备数量和类型分布？", "priority": "中", "category": "技术" },
-      { "id": "Q006", "question": "是否有现成的设备台账数据？", "priority": "中", "category": "数据" },
-      { "id": "Q007", "question": "与西门子系统的对接要求？", "priority": "中", "category": "技术" },
-      { "id": "Q008", "question": "是否需要移动端？支持哪些平台？", "priority": "低", "category": "功能" },
-      { "id": "Q009", "question": "付款方式和节点？", "priority": "中", "category": "商务" }
+      { "id": "Q001", "question": "老板最关心的两个指标是什么？是总销售额、回款率、还是某个渠道的业绩？", "priority": "高", "category": "业务", "purpose": "确定业绩看板的核心展示维度" },
+      { "id": "Q002", "question": "对账周期是怎样的？按月对账还是有其他周期？", "priority": "高", "category": "业务", "purpose": "确定对账模块的配置参数" },
+      { "id": "Q003", "question": "18个销售是一对一服务固定客户，还是会灵活调配？", "priority": "中", "category": "业务", "purpose": "确定客户-销售分配模式" },
+      { "id": "Q004", "question": "项目预算大概是多少？", "priority": "高", "category": "商务" },
+      { "id": "Q005", "question": "希望什么时候上线？", "priority": "中", "category": "项目" },
+      { "id": "Q006", "question": "决策人是谁？老板还是职业经理人？", "priority": "中", "category": "决策" }
     ],
 
     "completionRate": {
       "overall": 50,
       "byCategory": {
-        "业务背景": 60,
-        "功能需求": 40,
+        "业务背景": 80,
+        "功能需求": 60,
         "用户角色": 50,
-        "项目范围": 50,
-        "约束条件": 60,
-        "成功标准": 30,
-        "商务条件": 50
+        "项目范围": 40,
+        "约束条件": 20,
+        "成功标准": 40,
+        "商务条件": 20
       },
-      "blockers": ["决策人未明确", "竞对SaaS产品情况未知"]
+      "blockers": ["预算未确认", "决策人未明确", "对账规则待了解"]
     }
   },
 
   "metadata": {
-    "createdAt": "2026-03-25T00:00:00.000Z",
-    "updatedAt": "2026-03-25T10:30:00.000Z",
+    "createdAt": "2026-04-03T00:00:00.000Z",
+    "updatedAt": "2026-04-03T00:00:00.000Z",
     "createdBy": "AI",
     "version": "1.0"
   }

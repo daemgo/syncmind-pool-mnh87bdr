@@ -1,167 +1,91 @@
 {
-  "profile": {
-    "companyName": "宜昌长机科技有限责任公司",
-    "shortName": "长机科技",
-    "isListed": false,
-    "stockCode": "",
-    "website": "https://www.cjmt.com.cn/",
-    "industry": "装备制造",
-    "subIndustry": "机床工具/齿轮加工装备",
-    "scale": "中型企业",
-    "mainBusiness": "数控齿轮加工机床研发制造",
-    "products": [
-      { "name": "数控插齿机", "description": "工信部认定单项冠军产品，覆盖Φ120mm-Φ5000mm全系列" },
-      { "name": "数控滚齿机", "description": "加工直径Φ500mm-Φ6000mm，适用于能源、交通、重型机械" },
-      { "name": "数控铣齿机", "description": "加工直径Φ800mm-Φ8000mm，适用于风电、回转支承、矿山机械" },
-      { "name": "齿条加工设备", "description": "齿条插齿/铣齿/磨齿机，适用于工程机械、电梯、汽车转向器" },
-      { "name": "刮齿机系列", "description": "高效率新型制齿设备，比插齿快3-5倍" }
+  "companyName": "慕尚时装",
+  "shortName": "慕尚时装",
+  "summary": "杭州本土时尚女装企业，深耕女装市场10年，采用代理+买手店+直营多渠道销售模式",
+  "industry": "消费品/服饰",
+  "subIndustry": "时尚女装",
+  "scale": "中型企业",
+  "mainBusiness": "时尚女装设计、生产与销售",
+  "products": [
+    { "name": "时尚女装", "description": "面向25-40岁都市女性的女装产品，包含四季款式系列" }
+  ],
+  "targetCustomers": ["都市白领女性", "追求时尚品味的消费者"],
+  "businessModel": "代理+买手店+直营多渠道分销",
+  "rating": "B",
+  "tags": ["时尚女装", "多渠道分销", "区域品牌"],
+  "website": null,
+  "slogan": null,
+  "isListed": false,
+  "stockCode": null,
+  "revenueScale": "8000万元/年",
+
+  "registration": {
+    "registeredName": "慕尚时装[假设待验证]",
+    "registeredCapital": null,
+    "paidCapital": null,
+    "establishedDate": "2016年（成立约10年）",
+    "legalRepresentative": null,
+    "businessStatus": "存续[假设待验证]",
+    "shareholders": [],
+    "branchCount": 3,
+    "interpretation": "杭州本土女装企业，注册资本和股东结构待工商核实；3家直营店表明已进入品牌零售阶段",
+    "organizationType": "民营企业/家族式管理[假设待验证]",
+    "keyFindings": [
+      "杭州本土时尚女装品牌，深耕市场10年",
+      "多渠道分销模式：代理+买手店+直营，渠道结构较完整",
+      "18人销售团队服务50家渠道客户，人均管理约2.8家客户"
+    ]
+  },
+
+  "hiring": {
+    "keySignals": []
+  },
+
+  "competition": {
+    "industryRank": "区域性女装品牌[假设待验证]",
+    "marketShare": "杭州女装市场区域品牌[假设待验证]",
+    "mainCompetitors": ["杭派女装品牌", "其他区域性女装企业"],
+    "knownClients": ["12家代理商", "35家买手店", "3家直营店"]
+  },
+
+  "organization": {
+    "type": "民营企业[假设待验证]",
+    "decisionChain": "老板/老板娘直接决策→销售负责人执行[假设待验证]",
+    "keyPersons": [],
+    "salesStrategy": "强调客户资源归公司所有而非个人、移动端随时查看业绩、账目清晰对账便捷"
+  },
+
+  "timing": {
+    "phase": "业务扩张瓶颈期，急需规范化管理",
+    "analysisBasis": [
+      "年销8000万、18个销售，管理50家渠道——规模已超出Excel+微信能管好的边界",
+      "客户分散、对账麻烦、业绩看不清——管理痛点明确且已影响业务效率",
+      "成立10年，正处于从粗放管理向精细化运营转型的关键期"
     ],
-    "targetCustomers": [
-      "风电装备制造",
-      "工程机械企业",
-      "汽车转向器厂商",
-      "回转支承制造",
-      "矿山冶金企业",
-      "电梯制造行业"
-    ],
-    "businessModel": "B2B装备制造+售后技术服务",
-    "rating": "A",
-    "tags": [
-      "国家级专精特新重点小巨人",
-      "国家级单项冠军",
-      "高新技术企业",
-      "国家机床工具行业重点骨干企业",
-      "湖北省工程技术研究中心",
-      "两化融合示范企业",
-      "DCMM数据管理能力认证",
-      "智能制造国家队"
-    ],
-    "summary": "国家机床工具行业重点骨干企业，专业生产全系列数控插齿机、滚齿机、铣齿机等制齿设备，是中国唯一的全系列和最大型插齿机制造基地",
+    "entryStrategy": "从老板最痛的两个点切入：1)业绩可视化(谁卖了多少、哪个渠道好)，2)对账自动化(代理/买手店每月自动出对账单)",
+    "urgency": "高——管理瓶颈已影响业务扩张，需尽快上线系统"
+  },
 
-    "registration": {
-      "foundedDate": "1968年（前身为长江机床厂）",
-      "registeredCapital": "1460万人民币",
-      "paidInCapital": "",
-      "ownershipType": "国有背景改制企业[假设待验证]",
-      "branches": {
-        "count": "",
-        "locations": []
-      },
-      "legalRisks": "无",
-      "operatingAnomalies": "无",
-      "penalties": "无",
-      "summary": "从1968年长江机床厂演变至今，超50年行业积淀；总资产5亿余元但注册资本仅1460万；净资产4.2亿占总资产84%显示资产结构健康，负债率低"
-    },
+  "painPoints": [
+    { "area": "客户管理", "description": "客户信息分散在Excel和微信里，销售离职风险大，客户资源不归公司所有", "severity": "高" },
+    { "area": "销售跟进", "description": "跟进没有记录，新人接手不知道历史沟通内容，客户体验差", "severity": "高" },
+    { "area": "对账结算", "description": "代理、买手店对账全靠人工，月底对账头疼，容易出错扯皮", "severity": "高" },
+    { "area": "业绩分析", "description": "业绩看不清楚，无法按销售/渠道/产品多维度分析，数据滞后", "severity": "中" },
+    { "area": "库存管理", "description": "多款式多渠道，库存数据不透明，调货补货靠经验[假设待验证]", "severity": "中" }
+  ],
 
-    "policyAnalysis": {
-      "isSpecialized": true,
-      "isDigitalTransformation": true,
-      "isESG": false,
-      "isHighTech": true,
-      "policySupportLevel": "高：国家级专精特新小巨人+单项冠军+智能制造国家队",
-      "leverageStrategy": "依托国家级示范企业身份，对接工信部智能制造试点政策；利用DCMM认证基础推进数据治理项目"
-    },
+  "opportunities": [
+    { "area": "CRM系统", "description": "客户统一管理、跟进记录可查、销售离职平稳交接", "likelihood": "高" },
+    { "area": "业绩分析", "description": "多维度业绩看板，按销售/渠道/产品/时间段自动统计", "likelihood": "高" },
+    { "area": "渠道对账", "description": "代理/买手店在线对账，自动生成账单，减少人工核对", "likelihood": "高" }
+  ],
 
-    "timing": {
-      "currentPhase": "数字化深化与智能制造升级期",
-      "evidence": "2025年通过DCMM数据管理能力贯标认证；获评湖北省两化融合示范企业；2025-2026校招扩招配合业务扩张",
-      "entryStrategy": "趁DCMM认证后数据管理意识觉醒期切入，推荐数据驱动的生产/质量/设备一体化方案；可对接西门子生态降低准入门槛"
-    },
-
-    "creditRisk": {
-      "legalRisk": "低：无诉讼、失信、行政处罚记录",
-      "operationalRisk": "低：AAA级银行资信，净资产4.2亿资产结构健康",
-      "creditRating": "AAA",
-      "warnings": [],
-      "salesAdvice": "资信优质，可放心合作；决策链较规范需从技术部门切入"
-    },
-
-    "organization": {
-      "type": "职业化管理+国有背景[假设待验证]",
-      "decisionChain": "技术部门提出需求→生产/质量部门会签→采购部门评估→高层审批决策[假设待验证]",
-      "keyPersons": [
-        { "name": "叶又生", "title": "董事长" },
-        { "name": "唐兆庆", "title": "总经理" },
-        { "name": "钟瑞龄", "title": "总工程师" },
-        { "name": "瞿祖训", "title": "副总经理（生产）" },
-        { "name": "胡天明", "title": "副总经理" },
-        { "name": "段作东", "title": "董事、党委书记" },
-        { "name": "彭玲", "title": "董事" },
-        { "name": "戴圣荣", "title": "董事" }
-      ],
-      "salesStrategy": "从技术切入，强调智能制造升级与数据管理能力契合其国家级示范企业定位；推荐DCMM数据管理、生产追溯、质量管控类方案；重视西门子等国际品牌背书"
-    },
-
-    "strategy": {
-      "phase": "数字化深化与智能制造升级期",
-      "growthStage": "扩张期：2025-2026校招扩招，总装车间设备升级",
-      "competitivePosition": "国内插齿机细分领域第一",
-      "digitalMaturity": "中高：已通过DCMM认证，两化融合示范企业",
-      "analysisPath": "A+B",
-      "informationQuality": "75%",
-      "expansionSignals": [
-        "2025-2026校园招聘正在进行中",
-        "总装车间已完成设备调试与检验阶段升级"
-      ],
-      "contractionSignals": [],
-      "riskSignals": []
-    },
-
-    "techStack": {
-      "current": [],
-      "inferred": ["西门子数控系统", "DCMM数据管理"],
-      "maturity": "中",
-      "direction": "数据驱动+智能制造"
-    },
-
-    "keyMetrics": [
-      { "name": "总资产", "value": "5亿余元" },
-      { "name": "净资产", "value": "超4.2亿元" },
-      { "name": "占地面积", "value": "24万平米" },
-      { "name": "厂房面积", "value": "15万平米" }
-    ],
-
-    "painPoints": [
-      { "area": "生产管理", "description": "多品种小批量定制化生产，排产复杂，进度跟踪依赖人工[假设待验证]", "severity": "中" },
-      { "area": "质量管理", "description": "关键工序依赖工人经验，质量一致性难以保障，客诉追溯困难[假设待验证]", "severity": "高" },
-      { "area": "设备管理", "description": "恒温装配、整机联机等关键设备维护依赖经验，预测性维护能力不足[假设待验证]", "severity": "中" },
-      { "area": "成本核算", "description": "定制化产品成本核算复杂，报价缺乏数据支撑，利润空间不透明[假设待验证]", "severity": "中" },
-      { "area": "供应链管理", "description": "关键部件供应商筛选严格，但供应商质量追溯和协同管理仍需提升[假设待验证]", "severity": "中" }
-    ],
-
-    "opportunities": [
-      { "area": "智能制造升级", "description": "依托智能制造国家队和两化融合示范企业身份，推进MES/APS/数字孪生项目", "likelihood": "高" },
-      { "area": "数据治理深化", "description": "基于DCMM认证基础，扩展数据中台、BI分析、预测性维护应用", "likelihood": "中" },
-      { "area": "质量管理升级", "description": "结合严格制件和恒温装配工艺要求，建设QMS和全流程追溯系统", "likelihood": "高" }
-    ],
-
-    "hiring": {
-      "keySignals": [
-        "2026校园招聘正在进行中，显示企业处于人才扩张期",
-        "关键技术工人送德国西门子培训认证，重视高端技能人才培养"
-      ]
-    },
-
-    "competition": {
-      "industryRank": "国内插齿机细分领域第一",
-      "marketShare": "中国唯一的全系列和最大型插齿机制造基地",
-      "mainCompetitors": ["重庆机床集团", "南京二机床", "Gleason", "Liebherr"],
-      "knownClients": []
-    },
-
-    "salesGuide": null,
-    "requirements": null,
-    "contacts": [],
-    "tracking": null,
-    "budget": null,
-
-    "metadata": {
-      "createdAt": "2025-03-25T00:00:00.000Z",
-      "updatedAt": "2025-03-25T10:00:00.000Z",
-      "createdBy": "AI",
-      "version": "1.1",
-      "sources": ["https://www.cjmt.com.cn/", "宜昌市总工会官网", "媒体公开报道"],
-      "confidence": 85
-    }
+  "metadata": {
+    "createdAt": "2026-04-03T00:00:00.000Z",
+    "updatedAt": "2026-04-03T00:00:00.000Z",
+    "createdBy": "AI",
+    "version": "1.0",
+    "sources": ["用户提供信息"],
+    "confidence": 70
   }
 }
