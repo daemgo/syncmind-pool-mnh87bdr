@@ -10,89 +10,33 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as PreviewIndexRouteImport } from './routes/preview/index'
-import { Route as CustomersIndexRouteImport } from './routes/customers/index'
-import { Route as PreviewListPageRouteImport } from './routes/preview/list-page'
-import { Route as PreviewDashboardRouteImport } from './routes/preview/dashboard'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PreviewIndexRoute = PreviewIndexRouteImport.update({
-  id: '/preview/',
-  path: '/preview/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CustomersIndexRoute = CustomersIndexRouteImport.update({
-  id: '/customers/',
-  path: '/customers/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PreviewListPageRoute = PreviewListPageRouteImport.update({
-  id: '/preview/list-page',
-  path: '/preview/list-page',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PreviewDashboardRoute = PreviewDashboardRouteImport.update({
-  id: '/preview/dashboard',
-  path: '/preview/dashboard',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/preview/dashboard': typeof PreviewDashboardRoute
-  '/preview/list-page': typeof PreviewListPageRoute
-  '/customers/': typeof CustomersIndexRoute
-  '/preview/': typeof PreviewIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/preview/dashboard': typeof PreviewDashboardRoute
-  '/preview/list-page': typeof PreviewListPageRoute
-  '/customers': typeof CustomersIndexRoute
-  '/preview': typeof PreviewIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/preview/dashboard': typeof PreviewDashboardRoute
-  '/preview/list-page': typeof PreviewListPageRoute
-  '/customers/': typeof CustomersIndexRoute
-  '/preview/': typeof PreviewIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/preview/dashboard'
-    | '/preview/list-page'
-    | '/customers/'
-    | '/preview/'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/preview/dashboard'
-    | '/preview/list-page'
-    | '/customers'
-    | '/preview'
-  id:
-    | '__root__'
-    | '/'
-    | '/preview/dashboard'
-    | '/preview/list-page'
-    | '/customers/'
-    | '/preview/'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  PreviewDashboardRoute: typeof PreviewDashboardRoute
-  PreviewListPageRoute: typeof PreviewListPageRoute
-  CustomersIndexRoute: typeof CustomersIndexRoute
-  PreviewIndexRoute: typeof PreviewIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -104,43 +48,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/preview/': {
-      id: '/preview/'
-      path: '/preview'
-      fullPath: '/preview/'
-      preLoaderRoute: typeof PreviewIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/customers/': {
-      id: '/customers/'
-      path: '/customers'
-      fullPath: '/customers/'
-      preLoaderRoute: typeof CustomersIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/preview/list-page': {
-      id: '/preview/list-page'
-      path: '/preview/list-page'
-      fullPath: '/preview/list-page'
-      preLoaderRoute: typeof PreviewListPageRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/preview/dashboard': {
-      id: '/preview/dashboard'
-      path: '/preview/dashboard'
-      fullPath: '/preview/dashboard'
-      preLoaderRoute: typeof PreviewDashboardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  PreviewDashboardRoute: PreviewDashboardRoute,
-  PreviewListPageRoute: PreviewListPageRoute,
-  CustomersIndexRoute: CustomersIndexRoute,
-  PreviewIndexRoute: PreviewIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
