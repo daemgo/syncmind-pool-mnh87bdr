@@ -1,7 +1,22 @@
 {
-  "currentVersion": "v0.1",
+  "currentVersion": "v0.2",
   "status": "draft",
-  "versions": [],
+  "versions": [
+    {
+      "version": "v0.1",
+      "changedAt": "2026-04-03T00:00:00.000Z",
+      "changedBy": "AI",
+      "changeReason": "冷启动推演：基于用户描述慕尚时装痛点生成初始需求",
+      "profileRef": "慕尚时装"
+    },
+    {
+      "version": "v0.2",
+      "changedAt": "2026-04-03T00:00:00.000Z",
+      "changedBy": "AI",
+      "changeReason": "档案迁移验证：profile.json 已更新为慕尚时装，增量合并确认所有需求与新档案一致，版本升级",
+      "profileRef": "慕尚时装"
+    }
+  ],
 
   "current": {
     "salesInput": {
@@ -77,7 +92,14 @@
         "source": "customer-stated",
         "confidence": "low",
         "status": "active",
-        "acceptanceCriteria": ["支持客户分类（代理/买手店/直营）", "支持多联系人管理", "支持客户标签和分级"]
+        "acceptanceCriteria": ["支持客户分类（代理/买手店/直营）", "支持多联系人管理", "支持客户标签和分级"],
+        "history": [
+          {
+            "version": "v0.2",
+            "changedAt": "2026-04-03T00:00:00.000Z",
+            "changeReason": "档案迁移验证：N001 与慕尚时装档案一致，无需调整；追加版本记录"
+          }
+        ]
       },
       {
         "id": "N002",
@@ -88,7 +110,14 @@
         "source": "customer-stated",
         "confidence": "low",
         "status": "active",
-        "acceptanceCriteria": ["支持快速记录跟进", "支持按客户查询历史", "支持跟进提醒"]
+        "acceptanceCriteria": ["支持快速记录跟进", "支持按客户查询历史", "支持跟进提醒"],
+        "history": [
+          {
+            "version": "v0.2",
+            "changedAt": "2026-04-03T00:00:00.000Z",
+            "changeReason": "档案迁移验证：N002 对应档案 painPoints「销售跟进」高优先级场景，与慕尚时装一致，无需调整"
+          }
+        ]
       },
       {
         "id": "N003",
@@ -99,7 +128,14 @@
         "source": "customer-stated",
         "confidence": "low",
         "status": "active",
-        "acceptanceCriteria": ["按销售/渠道/时间段多维统计", "老板手机端可随时查看", "支持数据导出"]
+        "acceptanceCriteria": ["按销售/渠道/时间段多维统计", "老板手机端可随时查看", "支持数据导出"],
+        "history": [
+          {
+            "version": "v0.2",
+            "changedAt": "2026-04-03T00:00:00.000Z",
+            "changeReason": "档案迁移验证：N003 对应档案 opportunities「业绩分析」，与慕尚时装一致，无需调整"
+          }
+        ]
       },
       {
         "id": "N004",
@@ -110,7 +146,14 @@
         "source": "customer-stated",
         "confidence": "low",
         "status": "active",
-        "acceptanceCriteria": ["支持渠道账单自动生成", "支持在线对账确认", "支持对账单导出"]
+        "acceptanceCriteria": ["支持渠道账单自动生成", "支持在线对账确认", "支持对账单导出"],
+        "history": [
+          {
+            "version": "v0.2",
+            "changedAt": "2026-04-03T00:00:00.000Z",
+            "changeReason": "档案迁移验证：N004 对应档案 opportunities「渠道对账」，与慕尚时装一致，无需调整"
+          }
+        ]
       },
       {
         "id": "N005",
@@ -121,7 +164,14 @@
         "source": "profile-inference",
         "confidence": "low",
         "status": "active",
-        "acceptanceCriteria": ["支持手机端查看客户", "支持快速记录跟进", "支持离线缓存"]
+        "acceptanceCriteria": ["支持手机端查看客户", "支持快速记录跟进", "支持离线缓存"],
+        "history": [
+          {
+            "version": "v0.2",
+            "changedAt": "2026-04-03T00:00:00.000Z",
+            "changeReason": "档案迁移验证：N005 移动端为慕尚时装18个销售的合理推演需求，与档案一致，无需调整"
+          }
+        ]
       },
       {
         "id": "N006",
@@ -132,7 +182,14 @@
         "source": "industry-best-practice",
         "confidence": "low",
         "status": "active",
-        "acceptanceCriteria": ["支持渠道差异化定价", "支持历史报价查询", "支持批量报价"]
+        "acceptanceCriteria": ["支持渠道差异化定价", "支持历史报价查询", "支持批量报价"],
+        "history": [
+          {
+            "version": "v0.2",
+            "changedAt": "2026-04-03T00:00:00.000Z",
+            "changeReason": "档案迁移验证：N006 多渠道分销模式下的差异化定价需求，与慕尚时装一致，无需调整"
+          }
+        ]
       },
       {
         "id": "N007",
@@ -143,7 +200,14 @@
         "source": "industry-best-practice",
         "confidence": "low",
         "status": "active",
-        "acceptanceCriteria": ["支持月度拜访计划", "支持拜访提醒", "支持拜访记录自动生成"]
+        "acceptanceCriteria": ["支持月度拜访计划", "支持拜访提醒", "支持拜访记录自动生成"],
+        "history": [
+          {
+            "version": "v0.2",
+            "changedAt": "2026-04-03T00:00:00.000Z",
+            "changeReason": "档案迁移验证：N007 拜访计划与销售跟进管理相关，与慕尚时装一致，无需调整"
+          }
+        ]
       },
       {
         "id": "N008",
@@ -154,7 +218,14 @@
         "source": "customer-stated",
         "confidence": "low",
         "status": "active",
-        "acceptanceCriteria": ["支持客户批量转移", "支持交接清单生成", "支持历史记录完整保留"]
+        "acceptanceCriteria": ["支持客户批量转移", "支持交接清单生成", "支持历史记录完整保留"],
+        "history": [
+          {
+            "version": "v0.2",
+            "changedAt": "2026-04-03T00:00:00.000Z",
+            "changeReason": "档案迁移验证：N008 直接对应档案 painPoints「客户管理」中「销售离职风险大」，核心需求，与慕尚时装一致，无需调整"
+          }
+        ]
       },
       {
         "id": "N009",
@@ -165,7 +236,14 @@
         "source": "industry-best-practice",
         "confidence": "low",
         "status": "active",
-        "acceptanceCriteria": ["支持应收款台账", "支持账期提醒", "支持逾期预警"]
+        "acceptanceCriteria": ["支持应收款台账", "支持账期提醒", "支持逾期预警"],
+        "history": [
+          {
+            "version": "v0.2",
+            "changedAt": "2026-04-03T00:00:00.000Z",
+            "changeReason": "档案迁移验证：N009 与渠道对账场景相关，慕尚时装多渠道模式下应收款管理为合理推演，无需调整"
+          }
+        ]
       },
       {
         "id": "N010",
@@ -176,7 +254,14 @@
         "source": "industry-best-practice",
         "confidence": "low",
         "status": "inactive",
-        "acceptanceCriteria": ["支持按款式/尺码查询库存", "支持库存预警"]
+        "acceptanceCriteria": ["支持按款式/尺码查询库存", "支持库存预警"],
+        "history": [
+          {
+            "version": "v0.2",
+            "changedAt": "2026-04-03T00:00:00.000Z",
+            "changeReason": "档案迁移验证：N010 对应档案 painPoints「库存管理」，status 维持 inactive，暂不纳入一期范围，与档案一致"
+          }
+        ]
       }
     ],
 
@@ -362,6 +447,25 @@
         "商务条件": 10
       },
       "blockers": ["预算未确认", "决策人未明确", "对账规则待了解", "置信度低（冷启动推演模式）"]
+    },
+
+    "profileConsistencyValidation": {
+      "validatedAt": "2026-04-03T00:00:00.000Z",
+      "profileRef": "慕尚时装",
+      "validationResult": "PASS",
+      "summary": "档案主体已变更为慕尚时装，经逐条对比，所有10条需求（N001-N010）均与新档案一致，无需调整：N001/N002/N008 对应档案 painPoints；N003/N004 对应档案 opportunities；N005-N007/N009 为多渠道分销场景下的合理推演；N010 维持 inactive 与档案一致",
+      "details": [
+        { "needId": "N001", "profileArea": "painPoints / 客户管理", "consistent": true },
+        { "needId": "N002", "profileArea": "painPoints / 销售跟进", "consistent": true },
+        { "needId": "N003", "profileArea": "opportunities / 业绩分析", "consistent": true },
+        { "needId": "N004", "profileArea": "opportunities / 渠道对账", "consistent": true },
+        { "needId": "N005", "profileArea": "推演 / 移动办公场景", "consistent": true },
+        { "needId": "N006", "profileArea": "推演 / 多渠道差异化定价", "consistent": true },
+        { "needId": "N007", "profileArea": "推演 / CRM最佳实践", "consistent": true },
+        { "needId": "N008", "profileArea": "painPoints / 客户管理（离职风险）", "consistent": true },
+        { "needId": "N009", "profileArea": "推演 / 应收款管理", "consistent": true },
+        { "needId": "N010", "profileArea": "painPoints / 库存管理", "consistent": true, "note": "status=inactive，一期不纳入" }
+      ]
     }
   },
 
@@ -369,7 +473,7 @@
     "createdAt": "2026-04-03T00:00:00.000Z",
     "updatedAt": "2026-04-03T00:00:00.000Z",
     "createdBy": "AI",
-    "version": "v0.1",
+    "version": "v0.2",
     "mode": "cold-start"
   }
 }
