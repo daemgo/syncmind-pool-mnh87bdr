@@ -1,5 +1,6 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { Sidebar } from "@/components/layout/sidebar";
+import { AuthProvider, useAuth } from "@/contexts/auth-context";
 import "@/styles/globals.css";
 
 export const Route = createRootRoute({
@@ -31,17 +32,27 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <html lang="zh-CN">
+    <AuthProvider>
+      <RootLayout />
+    </AuthProvider>
+  );
+}
+
+function RootLayout() {
+  const { isAuthenticated } = useAuth();
+
+  return (
+    <html lang="zh-CN" className="dark">
       <head>
         <HeadContent />
       </head>
       <body
-        className="antialiased bg-background"
+        className="antialiased"
         style={{ fontFamily: "'Inter', 'Noto Sans SC', system-ui, sans-serif" }}
       >
-        <div className="flex min-h-screen">
-          <Sidebar />
-          <main className="flex-1 ml-60 min-h-screen">
+        <div className="flex min-h-screen bg-background">
+          {isAuthenticated && <Sidebar />}
+          <main className={`${isAuthenticated ? "ml-60" : ""} flex-1 min-h-screen`}>
             <div className="content-container py-6">
               <Outlet />
             </div>

@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -8,13 +8,10 @@ import {
 import {
   BarChart,
   Bar,
-  LineChart,
-  Line,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer,
   Cell,
   Area,
   AreaChart,
@@ -23,9 +20,7 @@ import {
   Cpu,
   Wrench,
   AlertTriangle,
-  CheckCircle,
   TrendingUp,
-  Clock,
 } from "lucide-react";
 import { equipmentMock } from "@/mock/equipment";
 import { workOrderMock } from "@/mock/work-order";
@@ -33,8 +28,18 @@ import { maintenanceMock } from "@/mock/maintenance";
 import { sparePartMock } from "@/mock/spare-part";
 import { Link } from "@tanstack/react-router";
 import { getDictLabel } from "@/lib/dict";
+import { useAuth } from "@/contexts/auth-context";
+import { useEffect } from "react";
 
 export const Route = createFileRoute("/")({
+  beforeLoad: () => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("eam_auth_user");
+      if (!stored) {
+        throw redirect({ to: "/login" });
+      }
+    }
+  },
   component: DashboardPage,
 });
 

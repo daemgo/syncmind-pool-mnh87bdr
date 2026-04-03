@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { EquipmentFilter } from "@/components/equipment/equipment-filter";
@@ -9,6 +9,12 @@ import { equipmentMock } from "@/mock/equipment";
 import type { Equipment } from "@/types/equipment";
 
 export const Route = createFileRoute("/equipment/")({
+  beforeLoad: () => {
+    const stored = localStorage.getItem("eam_auth_user");
+    if (!stored) throw redirect({ to: "/login" });
+    const user = JSON.parse(stored);
+    if (!["admin"].includes(user.role)) throw redirect({ to: "/" });
+  },
   component: EquipmentPage,
 });
 

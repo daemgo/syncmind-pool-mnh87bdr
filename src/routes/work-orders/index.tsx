@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { WorkOrderFilter } from "@/components/work-order/work-order-filter";
@@ -9,6 +9,12 @@ import { workOrderMock } from "@/mock/work-order";
 import type { WorkOrder } from "@/types/work-order";
 
 export const Route = createFileRoute("/work-orders/")({
+  beforeLoad: () => {
+    const stored = localStorage.getItem("eam_auth_user");
+    if (!stored) throw redirect({ to: "/login" });
+    const user = JSON.parse(stored);
+    if (!["admin", "technician"].includes(user.role)) throw redirect({ to: "/" });
+  },
   component: WorkOrderPage,
 });
 

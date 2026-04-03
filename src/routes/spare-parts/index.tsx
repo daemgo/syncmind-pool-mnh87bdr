@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { SparePartFilter } from "@/components/spare-part/spare-part-filter";
@@ -9,6 +9,12 @@ import { sparePartMock } from "@/mock/spare-part";
 import type { SparePart } from "@/types/spare-part";
 
 export const Route = createFileRoute("/spare-parts/")({
+  beforeLoad: () => {
+    const stored = localStorage.getItem("eam_auth_user");
+    if (!stored) throw redirect({ to: "/login" });
+    const user = JSON.parse(stored);
+    if (!["admin", "technician"].includes(user.role)) throw redirect({ to: "/" });
+  },
   component: SparePartPage,
 });
 

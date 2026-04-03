@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorkOrdersIndexRouteImport } from './routes/work-orders/index'
 import { Route as SparePartsIndexRouteImport } from './routes/spare-parts/index'
@@ -22,6 +23,11 @@ import { Route as SparePartsIdRouteImport } from './routes/spare-parts/$id'
 import { Route as MaintenanceIdRouteImport } from './routes/maintenance/$id'
 import { Route as EquipmentIdRouteImport } from './routes/equipment/$id'
 
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -85,6 +91,7 @@ const EquipmentIdRoute = EquipmentIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
   '/equipment/$id': typeof EquipmentIdRoute
   '/maintenance/$id': typeof MaintenanceIdRoute
   '/spare-parts/$id': typeof SparePartsIdRoute
@@ -99,6 +106,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
   '/equipment/$id': typeof EquipmentIdRoute
   '/maintenance/$id': typeof MaintenanceIdRoute
   '/spare-parts/$id': typeof SparePartsIdRoute
@@ -114,6 +122,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
   '/equipment/$id': typeof EquipmentIdRoute
   '/maintenance/$id': typeof MaintenanceIdRoute
   '/spare-parts/$id': typeof SparePartsIdRoute
@@ -130,6 +139,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/login'
     | '/equipment/$id'
     | '/maintenance/$id'
     | '/spare-parts/$id'
@@ -144,6 +154,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/login'
     | '/equipment/$id'
     | '/maintenance/$id'
     | '/spare-parts/$id'
@@ -158,6 +169,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/login'
     | '/equipment/$id'
     | '/maintenance/$id'
     | '/spare-parts/$id'
@@ -173,6 +185,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LoginRoute: typeof LoginRoute
   EquipmentIdRoute: typeof EquipmentIdRoute
   MaintenanceIdRoute: typeof MaintenanceIdRoute
   SparePartsIdRoute: typeof SparePartsIdRoute
@@ -188,6 +201,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -277,6 +297,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LoginRoute: LoginRoute,
   EquipmentIdRoute: EquipmentIdRoute,
   MaintenanceIdRoute: MaintenanceIdRoute,
   SparePartsIdRoute: SparePartsIdRoute,

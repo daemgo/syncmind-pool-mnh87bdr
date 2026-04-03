@@ -1,8 +1,14 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Clock } from "lucide-react";
 
 export const Route = createFileRoute("/settings/")({
+  beforeLoad: () => {
+    const stored = localStorage.getItem("eam_auth_user");
+    if (!stored) throw redirect({ to: "/login" });
+    const user = JSON.parse(stored);
+    if (user.role !== "admin") throw redirect({ to: "/" });
+  },
   component: SettingsPage,
 });
 
