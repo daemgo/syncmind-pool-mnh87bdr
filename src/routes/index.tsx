@@ -1,77 +1,311 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MonitorPlay } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  ChartContainer,
+  ChartConfig,
+} from "@/components/ui/chart";
+import {
+  BarChart,
+  Bar,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  Cell,
+} from "recharts";
+import {
+  Cpu,
+  Wrench,
+  AlertTriangle,
+  CheckCircle,
+  TrendingUp,
+  Clock,
+} from "lucide-react";
+import { equipmentMock } from "@/mock/equipment";
+import { workOrderMock } from "@/mock/work-order";
+import { maintenanceMock } from "@/mock/maintenance";
+import { sparePartMock } from "@/mock/spare-part";
+import { Link } from "@tanstack/react-router";
+import { getDictLabel } from "@/lib/dict";
 
 export const Route = createFileRoute("/")({
-  component: Home,
+  component: DashboardPage,
 });
 
-function Home() {
+const oeeData = [
+  { month: "10月", oee: 78 },
+  { month: "11月", oee: 82 },
+  { month: "12月", oee: 75 },
+  { month: "1月", oee: 85 },
+  { month: "2月", oee: 88 },
+  { month: "3月", oee: 91 },
+];
+
+const chartConfig = {
+  oee: {
+    label: "OEE (%)",
+    color: "var(--color-chart-1)",
+  },
+  faults: {
+    label: "故障次数",
+    color: "var(--color-chart-2)",
+  },
+} satisfies ChartConfig;
+
+const faultData = [
+  { name: "VMC-850", faults: 2 },
+  { name: "CK6150", faults: 4 },
+  { name: "LCT-3015", faults: 1 },
+  { name: "Y32-500", faults: 0 },
+  { name: "CMM", faults: 0 },
+];
+
+const colorMap: Record<string, string> = {
+  red: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
+  orange: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
+  amber: "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200",
+  slate: "bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-200",
+  sky: "bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200",
+  blue: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
+  violet: "bg-violet-100 text-violet-800 dark:bg-violet-900 dark:text-violet-200",
+  green: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
+  gray: "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200",
+};
+
+export function DashboardPage() {
+  const runningCount = equipmentMock.filter((e) => e.status === "running").length;
+  const stoppedCount = equipmentMock.filter(
+    (e) => e.status === "stopped_repair" || e.status === "stopped_material"
+  ).length;
+  const activeWorkOrders = workOrderMock.filter(
+    (w) => w.status === "executing" || w.status === "pending_execute" || w.status === "pending_dispatch"
+  ).length;
+  const urgentWorkOrders = workOrderMock.filter((w) => w.priority === "urgent").length;
+  const overduePlans = maintenanceMock.filter((m) => m.planStatus === "overdue").length;
+  const warningParts = sparePartMock.filter(
+    (p) => p.currentStock <= p.safetyStock && p.currentStock > 0
+  ).length;
+  const outParts = sparePartMock.filter((p) => p.currentStock === 0).length;
+  const currentOEE = oeeData[oeeData.length - 1].oee;
+
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-linear-to-br from-slate-100 via-blue-100/60 to-slate-200/90" />
-        <div
-          className="absolute top-1/4 left-1/3 w-200 h-150 rounded-full blur-3xl"
-          style={{
-            background:
-              "radial-gradient(circle, oklch(0.8 0.08 250 / 50%) 0%, transparent 70%)",
-          }}
-        />
-        <div
-          className="absolute bottom-0 right-0 w-125 h-100 rounded-full blur-3xl"
-          style={{
-            background:
-              "radial-gradient(circle, oklch(0.75 0.03 250 / 40%) 0%, transparent 70%)",
-          }}
-        />
-        {/* Grid pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.15) 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
-          }}
-        />
+    <div className="p-6 space-y-6">
+      <div>
+        <h1 className="text-2xl font-semibold">监控大屏</h1>
+        <p className="text-sm text-muted-foreground mt-1">
+          实时掌握全厂设备运行状态
+        </p>
       </div>
 
-      {/* Main Content */}
-      <div className="flex-1 flex items-center justify-center px-6">
-        <div className="max-w-2xl w-full text-center space-y-10">
-          {/* Icon with orbiting dot */}
-          <div className="flex justify-center">
-            <div className="relative h-24 w-24 flex items-center justify-center">
-              <div className="h-20 w-20 rounded-2xl bg-white/80 backdrop-blur border border-white shadow-lg shadow-blue-500/5 flex items-center justify-center">
-                <MonitorPlay className="h-9 w-9 text-blue-600" />
+      {/* Stats Grid */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <Card>
+          <CardContent className="pt-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-muted-foreground">设备总数</p>
+                <p className="text-3xl font-semibold mt-1">{equipmentMock.length}</p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  <span className="text-green-600 font-medium">{runningCount} 运行</span>
+                  {" · "}
+                  <span className="text-amber-600 font-medium">{stoppedCount} 停机</span>
+                </p>
               </div>
-              {/* Orbiting dot */}
-              <div
-                className="absolute inset-0 animate-spin"
-                style={{ animationDuration: "3s" }}
-              >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-0.5 h-3.5 w-3.5 rounded-full bg-emerald-500 border-2 border-white shadow-sm" />
+              <div className="h-10 w-10 rounded-xl bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
+                <Cpu className="h-5 w-5 text-blue-600" />
               </div>
             </div>
-          </div>
+          </CardContent>
+        </Card>
 
-          {/* Heading */}
+        <Card>
+          <CardContent className="pt-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-muted-foreground">活跃工单</p>
+                <p className="text-3xl font-semibold mt-1">{activeWorkOrders}</p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {urgentWorkOrders > 0 && (
+                    <span className="text-red-600 font-medium">
+                      {urgentWorkOrders} 紧急
+                    </span>
+                  )}
+                  {urgentWorkOrders === 0 && <span>无紧急工单</span>}
+                </p>
+              </div>
+              <div className="h-10 w-10 rounded-xl bg-violet-100 dark:bg-violet-900 flex items-center justify-center">
+                <Wrench className="h-5 w-5 text-violet-600" />
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="pt-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-muted-foreground">综合OEE</p>
+                <p className="text-3xl font-semibold mt-1">{currentOEE}%</p>
+                <p className="text-xs text-green-600 font-medium mt-1">
+                  <TrendingUp className="h-3 w-3 inline mr-0.5" />
+                  较上月 +3%
+                </p>
+              </div>
+              <div className="h-10 w-10 rounded-xl bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center">
+                <TrendingUp className="h-5 w-5 text-emerald-600" />
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="pt-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-muted-foreground">待处理事项</p>
+                <p className="text-3xl font-semibold mt-1">
+                  {overduePlans + warningParts + outParts}
+                </p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {overduePlans > 0 && (
+                    <span className="text-red-600 font-medium">
+                      {overduePlans} 到期
+                    </span>
+                  )}
+                  {warningParts > 0 && (
+                    <span className="text-amber-600 font-medium">
+                      {" · "}{warningParts} 预警
+                    </span>
+                  )}
+                  {outParts > 0 && (
+                    <span className="text-red-600 font-medium">
+                      {" · "}{outParts} 缺货
+                    </span>
+                  )}
+                  {overduePlans + warningParts + outParts === 0 && <span>暂无异常</span>}
+                </p>
+              </div>
+              <div className="h-10 w-10 rounded-xl bg-amber-100 dark:bg-amber-900 flex items-center justify-center">
+                <AlertTriangle className="h-5 w-5 text-amber-600" />
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Charts */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base">OEE 趋势（近6个月）</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ChartContainer config={chartConfig} className="h-[280px] w-full">
+              <LineChart data={oeeData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="month" fontSize={12} tickLine={false} />
+                <YAxis fontSize={12} tickLine={false} domain={[60, 100]} />
+                <Tooltip
+                  contentStyle={{ borderRadius: "8px", border: "1px solid var(--border)" }}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="oee"
+                  stroke="var(--color-chart-1)"
+                  strokeWidth={2}
+                  dot={{ fill: "var(--color-chart-1)", r: 4 }}
+                  activeDot={{ r: 6 }}
+                />
+              </LineChart>
+            </ChartContainer>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base">设备故障次数排名</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ChartContainer config={chartConfig} className="h-[280px] w-full">
+              <BarChart data={faultData} layout="vertical">
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis type="number" fontSize={12} tickLine={false} />
+                <YAxis
+                  dataKey="name"
+                  type="category"
+                  fontSize={12}
+                  tickLine={false}
+                  width={100}
+                />
+                <Tooltip
+                  contentStyle={{ borderRadius: "8px", border: "1px solid var(--border)" }}
+                />
+                <Bar dataKey="faults" radius={[0, 4, 4, 0]}>
+                  {faultData.map((entry, index) => (
+                    <Cell
+                      key={entry.name}
+                      fill={
+                        entry.faults === 0
+                          ? "var(--color-chart-1)"
+                          : entry.faults >= 3
+                            ? "var(--color-chart-2)"
+                            : "var(--color-chart-3)"
+                      }
+                    />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ChartContainer>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Recent Work Orders */}
+      <Card>
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <CardTitle className="text-base">最新工单</CardTitle>
+            <Link to="/work-orders" className="text-sm text-primary hover:underline">
+              查看全部
+            </Link>
+          </div>
+        </CardHeader>
+        <CardContent>
           <div className="space-y-3">
-            <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground">
-              一句话，AI 帮你生成
-            </h1>
+            {workOrderMock.slice(0, 5).map((wo) => (
+              <div
+                key={wo.id}
+                className="flex items-center justify-between py-2 border-b last:border-0"
+              >
+                <div className="flex items-center gap-3 min-w-0">
+                  <span className="font-mono text-xs text-muted-foreground shrink-0">
+                    {wo.workOrderCode}
+                  </span>
+                  <span className="text-sm truncate">{wo.title}</span>
+                </div>
+                <div className="flex items-center gap-2 ml-4 shrink-0">
+                  <Badge
+                    className={colorMap[getDictLabel("dict-work-order-status", wo.status) === "执行中" ? "amber" : "blue"]}
+                    variant="secondary"
+                  >
+                    {getDictLabel("dict-work-order-status", wo.status)}
+                  </Badge>
+                  <Badge
+                    className={colorMap[getDictLabel("dict-work-order-priority", wo.priority) === "紧急" ? "red" : "amber"]}
+                    variant="secondary"
+                  >
+                    {getDictLabel("dict-work-order-priority", wo.priority)}
+                  </Badge>
+                </div>
+              </div>
+            ))}
           </div>
-
-          {/* Hint */}
-          <div className="-mt-4">
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/60 backdrop-blur border border-white/80 shadow-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <p className="text-sm text-muted-foreground">
-                试试说：&quot;帮我生成一个精美的网站首页&quot;
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

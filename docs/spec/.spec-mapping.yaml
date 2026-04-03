@@ -1,0 +1,75 @@
+specHash: "v1.0.1-eam-20260403"
+generatedAt: "2026-04-03T00:00:00.000Z"
+sourceMode: spec
+modules:
+  - moduleId: equipment
+    moduleName: 设备台账管理
+    locked: false
+    files:
+      - src/routes/equipment/index.tsx
+      - src/routes/equipment/$id.tsx
+      - src/components/equipment/equipment-filter.tsx
+      - src/components/equipment/equipment-table.tsx
+      - src/components/equipment/equipment-detail.tsx
+      - src/components/equipment/equipment-form-dialog.tsx
+      - src/types/equipment.ts
+      - src/mock/equipment.ts
+  - moduleId: work-orders
+    moduleName: 维修工单管理
+    locked: false
+    files:
+      - src/routes/work-orders/index.tsx
+      - src/routes/work-orders/$id.tsx
+      - src/components/work-order/work-order-filter.tsx
+      - src/components/work-order/work-order-table.tsx
+      - src/components/work-order/work-order-detail.tsx
+      - src/components/work-order/work-order-form-dialog.tsx
+      - src/types/work-order.ts
+      - src/mock/work-order.ts
+  - moduleId: maintenance
+    moduleName: 预防性维护
+    locked: false
+    files:
+      - src/routes/maintenance/index.tsx
+      - src/routes/maintenance/$id.tsx
+      - src/components/maintenance/maintenance-filter.tsx
+      - src/components/maintenance/maintenance-table.tsx
+      - src/components/maintenance/maintenance-detail.tsx
+      - src/components/maintenance/maintenance-form-dialog.tsx
+      - src/types/maintenance.ts
+      - src/mock/maintenance.ts
+  - moduleId: spare-parts
+    moduleName: 备品备件管理
+    locked: false
+    files:
+      - src/routes/spare-parts/index.tsx
+      - src/routes/spare-parts/$id.tsx
+      - src/components/spare-part/spare-part-filter.tsx
+      - src/components/spare-part/spare-part-table.tsx
+      - src/components/spare-part/spare-part-detail.tsx
+      - src/components/spare-part/spare-part-form-dialog.tsx
+      - src/types/spare-part.ts
+      - src/mock/spare-part.ts
+  - moduleId: integration
+    moduleName: 西门子系统集成
+    locked: false
+    placeholder: true
+    files:
+      - src/routes/integration/index.tsx
+  - moduleId: reports
+    moduleName: 分析报表
+    locked: false
+    placeholder: true
+    files:
+      - src/routes/reports/index.tsx
+  - moduleId: settings
+    moduleName: 系统设置
+    locked: false
+    placeholder: true
+    files:
+      - src/routes/settings/index.tsx
+shared:
+  - src/lib/dict.ts
+  - src/components/layout/sidebar.tsx
+  - src/routes/__root.tsx
+  - src/routes/index.tsx

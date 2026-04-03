@@ -10,33 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WorkOrdersIndexRouteImport } from './routes/work-orders/index'
+import { Route as SparePartsIndexRouteImport } from './routes/spare-parts/index'
+import { Route as SettingsIndexRouteImport } from './routes/settings/index'
+import { Route as ReportsIndexRouteImport } from './routes/reports/index'
+import { Route as MaintenanceIndexRouteImport } from './routes/maintenance/index'
+import { Route as IntegrationIndexRouteImport } from './routes/integration/index'
+import { Route as EquipmentIndexRouteImport } from './routes/equipment/index'
+import { Route as WorkOrdersIdRouteImport } from './routes/work-orders/$id'
+import { Route as SparePartsIdRouteImport } from './routes/spare-parts/$id'
+import { Route as MaintenanceIdRouteImport } from './routes/maintenance/$id'
+import { Route as EquipmentIdRouteImport } from './routes/equipment/$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WorkOrdersIndexRoute = WorkOrdersIndexRouteImport.update({
+  id: '/work-orders/',
+  path: '/work-orders/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SparePartsIndexRoute = SparePartsIndexRouteImport.update({
+  id: '/spare-parts/',
+  path: '/spare-parts/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsIndexRoute = SettingsIndexRouteImport.update({
+  id: '/settings/',
+  path: '/settings/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsIndexRoute = ReportsIndexRouteImport.update({
+  id: '/reports/',
+  path: '/reports/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaintenanceIndexRoute = MaintenanceIndexRouteImport.update({
+  id: '/maintenance/',
+  path: '/maintenance/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegrationIndexRoute = IntegrationIndexRouteImport.update({
+  id: '/integration/',
+  path: '/integration/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EquipmentIndexRoute = EquipmentIndexRouteImport.update({
+  id: '/equipment/',
+  path: '/equipment/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkOrdersIdRoute = WorkOrdersIdRouteImport.update({
+  id: '/work-orders/$id',
+  path: '/work-orders/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SparePartsIdRoute = SparePartsIdRouteImport.update({
+  id: '/spare-parts/$id',
+  path: '/spare-parts/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaintenanceIdRoute = MaintenanceIdRouteImport.update({
+  id: '/maintenance/$id',
+  path: '/maintenance/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EquipmentIdRoute = EquipmentIdRouteImport.update({
+  id: '/equipment/$id',
+  path: '/equipment/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/equipment/$id': typeof EquipmentIdRoute
+  '/maintenance/$id': typeof MaintenanceIdRoute
+  '/spare-parts/$id': typeof SparePartsIdRoute
+  '/work-orders/$id': typeof WorkOrdersIdRoute
+  '/equipment/': typeof EquipmentIndexRoute
+  '/integration/': typeof IntegrationIndexRoute
+  '/maintenance/': typeof MaintenanceIndexRoute
+  '/reports/': typeof ReportsIndexRoute
+  '/settings/': typeof SettingsIndexRoute
+  '/spare-parts/': typeof SparePartsIndexRoute
+  '/work-orders/': typeof WorkOrdersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/equipment/$id': typeof EquipmentIdRoute
+  '/maintenance/$id': typeof MaintenanceIdRoute
+  '/spare-parts/$id': typeof SparePartsIdRoute
+  '/work-orders/$id': typeof WorkOrdersIdRoute
+  '/equipment': typeof EquipmentIndexRoute
+  '/integration': typeof IntegrationIndexRoute
+  '/maintenance': typeof MaintenanceIndexRoute
+  '/reports': typeof ReportsIndexRoute
+  '/settings': typeof SettingsIndexRoute
+  '/spare-parts': typeof SparePartsIndexRoute
+  '/work-orders': typeof WorkOrdersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/equipment/$id': typeof EquipmentIdRoute
+  '/maintenance/$id': typeof MaintenanceIdRoute
+  '/spare-parts/$id': typeof SparePartsIdRoute
+  '/work-orders/$id': typeof WorkOrdersIdRoute
+  '/equipment/': typeof EquipmentIndexRoute
+  '/integration/': typeof IntegrationIndexRoute
+  '/maintenance/': typeof MaintenanceIndexRoute
+  '/reports/': typeof ReportsIndexRoute
+  '/settings/': typeof SettingsIndexRoute
+  '/spare-parts/': typeof SparePartsIndexRoute
+  '/work-orders/': typeof WorkOrdersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/equipment/$id'
+    | '/maintenance/$id'
+    | '/spare-parts/$id'
+    | '/work-orders/$id'
+    | '/equipment/'
+    | '/integration/'
+    | '/maintenance/'
+    | '/reports/'
+    | '/settings/'
+    | '/spare-parts/'
+    | '/work-orders/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/equipment/$id'
+    | '/maintenance/$id'
+    | '/spare-parts/$id'
+    | '/work-orders/$id'
+    | '/equipment'
+    | '/integration'
+    | '/maintenance'
+    | '/reports'
+    | '/settings'
+    | '/spare-parts'
+    | '/work-orders'
+  id:
+    | '__root__'
+    | '/'
+    | '/equipment/$id'
+    | '/maintenance/$id'
+    | '/spare-parts/$id'
+    | '/work-orders/$id'
+    | '/equipment/'
+    | '/integration/'
+    | '/maintenance/'
+    | '/reports/'
+    | '/settings/'
+    | '/spare-parts/'
+    | '/work-orders/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EquipmentIdRoute: typeof EquipmentIdRoute
+  MaintenanceIdRoute: typeof MaintenanceIdRoute
+  SparePartsIdRoute: typeof SparePartsIdRoute
+  WorkOrdersIdRoute: typeof WorkOrdersIdRoute
+  EquipmentIndexRoute: typeof EquipmentIndexRoute
+  IntegrationIndexRoute: typeof IntegrationIndexRoute
+  MaintenanceIndexRoute: typeof MaintenanceIndexRoute
+  ReportsIndexRoute: typeof ReportsIndexRoute
+  SettingsIndexRoute: typeof SettingsIndexRoute
+  SparePartsIndexRoute: typeof SparePartsIndexRoute
+  WorkOrdersIndexRoute: typeof WorkOrdersIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +195,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/work-orders/': {
+      id: '/work-orders/'
+      path: '/work-orders'
+      fullPath: '/work-orders/'
+      preLoaderRoute: typeof WorkOrdersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/spare-parts/': {
+      id: '/spare-parts/'
+      path: '/spare-parts'
+      fullPath: '/spare-parts/'
+      preLoaderRoute: typeof SparePartsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings/': {
+      id: '/settings/'
+      path: '/settings'
+      fullPath: '/settings/'
+      preLoaderRoute: typeof SettingsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports/': {
+      id: '/reports/'
+      path: '/reports'
+      fullPath: '/reports/'
+      preLoaderRoute: typeof ReportsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/maintenance/': {
+      id: '/maintenance/'
+      path: '/maintenance'
+      fullPath: '/maintenance/'
+      preLoaderRoute: typeof MaintenanceIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integration/': {
+      id: '/integration/'
+      path: '/integration'
+      fullPath: '/integration/'
+      preLoaderRoute: typeof IntegrationIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/equipment/': {
+      id: '/equipment/'
+      path: '/equipment'
+      fullPath: '/equipment/'
+      preLoaderRoute: typeof EquipmentIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/work-orders/$id': {
+      id: '/work-orders/$id'
+      path: '/work-orders/$id'
+      fullPath: '/work-orders/$id'
+      preLoaderRoute: typeof WorkOrdersIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/spare-parts/$id': {
+      id: '/spare-parts/$id'
+      path: '/spare-parts/$id'
+      fullPath: '/spare-parts/$id'
+      preLoaderRoute: typeof SparePartsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/maintenance/$id': {
+      id: '/maintenance/$id'
+      path: '/maintenance/$id'
+      fullPath: '/maintenance/$id'
+      preLoaderRoute: typeof MaintenanceIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/equipment/$id': {
+      id: '/equipment/$id'
+      path: '/equipment/$id'
+      fullPath: '/equipment/$id'
+      preLoaderRoute: typeof EquipmentIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EquipmentIdRoute: EquipmentIdRoute,
+  MaintenanceIdRoute: MaintenanceIdRoute,
+  SparePartsIdRoute: SparePartsIdRoute,
+  WorkOrdersIdRoute: WorkOrdersIdRoute,
+  EquipmentIndexRoute: EquipmentIndexRoute,
+  IntegrationIndexRoute: IntegrationIndexRoute,
+  MaintenanceIndexRoute: MaintenanceIndexRoute,
+  ReportsIndexRoute: ReportsIndexRoute,
+  SettingsIndexRoute: SettingsIndexRoute,
+  SparePartsIndexRoute: SparePartsIndexRoute,
+  WorkOrdersIndexRoute: WorkOrdersIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

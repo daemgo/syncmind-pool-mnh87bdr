@@ -1,4 +1,5 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
+import { Sidebar } from "@/components/layout/sidebar";
 import "@/styles/globals.css";
 
 export const Route = createRootRoute({
@@ -9,8 +10,8 @@ export const Route = createRootRoute({
         name: "viewport",
         content: "width=device-width, initial-scale=1",
       },
-      { title: "syncMind Skills" },
-      { name: "description", content: "syncMind Skills Platform" },
+      { title: "EAM 管理系统" },
+      { name: "description", content: "长机科技设备资产管理系统" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -30,12 +31,20 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <html lang="en">
+    <html lang="zh-CN">
       <head>
         <HeadContent />
       </head>
-      <body className="antialiased" style={{ fontFamily: "'Inter', 'Noto Sans SC', system-ui, sans-serif" }}>
-        <Outlet />
+      <body
+        className="antialiased bg-background"
+        style={{ fontFamily: "'Inter', 'Noto Sans SC', system-ui, sans-serif" }}
+      >
+        <div className="flex min-h-screen">
+          <Sidebar />
+          <main className="flex-1 ml-60 min-h-screen">
+            <Outlet />
+          </main>
+        </div>
         <Scripts />
         <NavBridgeScript />
       </body>
