@@ -103,94 +103,94 @@ export function DashboardPage() {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card>
+        <Card className="stat-card">
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground">设备总数</p>
-                <p className="text-3xl font-semibold mt-1">{equipmentMock.length}</p>
+                <p className="text-3xl font-semibold mt-1 tabular-nums">{equipmentMock.length}</p>
                 <p className="text-xs text-muted-foreground mt-1">
-                  <span className="text-green-600 font-medium">{runningCount} 运行</span>
+                  <span className="text-green-600 dark:text-green-400 font-medium">{runningCount} 运行</span>
                   {" · "}
-                  <span className="text-amber-600 font-medium">{stoppedCount} 停机</span>
+                  <span className="text-amber-600 dark:text-amber-400 font-medium">{stoppedCount} 停机</span>
                 </p>
               </div>
-              <div className="h-10 w-10 rounded-xl bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
-                <Cpu className="h-5 w-5 text-blue-600" />
+              <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                <Cpu className="h-6 w-6 text-primary" />
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="stat-card">
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground">活跃工单</p>
-                <p className="text-3xl font-semibold mt-1">{activeWorkOrders}</p>
+                <p className="text-3xl font-semibold mt-1 tabular-nums">{activeWorkOrders}</p>
                 <p className="text-xs text-muted-foreground mt-1">
                   {urgentWorkOrders > 0 && (
-                    <span className="text-red-600 font-medium">
+                    <span className="text-red-600 dark:text-red-400 font-medium">
                       {urgentWorkOrders} 紧急
                     </span>
                   )}
                   {urgentWorkOrders === 0 && <span>无紧急工单</span>}
                 </p>
               </div>
-              <div className="h-10 w-10 rounded-xl bg-violet-100 dark:bg-violet-900 flex items-center justify-center">
-                <Wrench className="h-5 w-5 text-violet-600" />
+              <div className="h-12 w-12 rounded-xl bg-violet-500/10 flex items-center justify-center shrink-0">
+                <Wrench className="h-6 w-6 text-violet-600 dark:text-violet-400" />
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="stat-card">
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground">综合OEE</p>
-                <p className="text-3xl font-semibold mt-1">{currentOEE}%</p>
-                <p className="text-xs text-green-600 font-medium mt-1">
-                  <TrendingUp className="h-3 w-3 inline mr-0.5" />
+                <p className="text-3xl font-semibold mt-1 tabular-nums">{currentOEE}%</p>
+                <p className="text-xs text-green-600 dark:text-green-400 font-medium mt-1 flex items-center gap-1">
+                  <TrendingUp className="h-3 w-3" />
                   较上月 +3%
                 </p>
               </div>
-              <div className="h-10 w-10 rounded-xl bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center">
-                <TrendingUp className="h-5 w-5 text-emerald-600" />
+              <div className="h-12 w-12 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0">
+                <TrendingUp className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="stat-card">
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground">待处理事项</p>
-                <p className="text-3xl font-semibold mt-1">
+                <p className="text-3xl font-semibold mt-1 tabular-nums">
                   {overduePlans + warningParts + outParts}
                 </p>
                 <p className="text-xs text-muted-foreground mt-1">
                   {overduePlans > 0 && (
-                    <span className="text-red-600 font-medium">
+                    <span className="text-red-600 dark:text-red-400 font-medium">
                       {overduePlans} 到期
                     </span>
                   )}
                   {warningParts > 0 && (
-                    <span className="text-amber-600 font-medium">
+                    <span className="text-amber-600 dark:text-amber-400 font-medium">
                       {" · "}{warningParts} 预警
                     </span>
                   )}
                   {outParts > 0 && (
-                    <span className="text-red-600 font-medium">
+                    <span className="text-red-600 dark:text-red-400 font-medium">
                       {" · "}{outParts} 缺货
                     </span>
                   )}
                   {overduePlans + warningParts + outParts === 0 && <span>暂无异常</span>}
                 </p>
               </div>
-              <div className="h-10 w-10 rounded-xl bg-amber-100 dark:bg-amber-900 flex items-center justify-center">
-                <AlertTriangle className="h-5 w-5 text-amber-600" />
+              <div className="h-12 w-12 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0">
+                <AlertTriangle className="h-6 w-6 text-amber-600 dark:text-amber-400" />
               </div>
             </div>
           </CardContent>

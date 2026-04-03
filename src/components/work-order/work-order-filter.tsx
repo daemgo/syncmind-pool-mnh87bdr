@@ -31,9 +31,9 @@ export function WorkOrderFilter({ onFilterChange }: WorkOrderFilterProps) {
   const [source, setSource] = useState<WorkOrderSource | "all">("all");
 
   return (
-    <div className="flex flex-wrap gap-3 p-4 bg-card rounded-xl border border-border">
+    <div className="flex flex-wrap items-center gap-3 p-4 bg-card rounded-xl border border-border">
       <div className="relative flex-1 min-w-48">
-        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
           placeholder="搜索工单编号、设备..."
           value={search}
@@ -41,7 +41,7 @@ export function WorkOrderFilter({ onFilterChange }: WorkOrderFilterProps) {
             setSearch(e.target.value);
             onFilterChange({ search: e.target.value, status, priority, source });
           }}
-          className="pl-9"
+          className="pl-9 h-9"
         />
       </div>
       <Select
@@ -51,7 +51,7 @@ export function WorkOrderFilter({ onFilterChange }: WorkOrderFilterProps) {
           onFilterChange({ search, status: v as WorkOrderStatus | "all", priority, source });
         }}
       >
-        <SelectTrigger className="w-36">
+        <SelectTrigger className="w-36 h-9">
           <SelectValue placeholder="工单状态" />
         </SelectTrigger>
         <SelectContent>
@@ -71,7 +71,7 @@ export function WorkOrderFilter({ onFilterChange }: WorkOrderFilterProps) {
           onFilterChange({ search, status, priority: v as WorkOrderPriority | "all", source });
         }}
       >
-        <SelectTrigger className="w-28">
+        <SelectTrigger className="w-28 h-9">
           <SelectValue placeholder="优先级" />
         </SelectTrigger>
         <SelectContent>
@@ -89,7 +89,7 @@ export function WorkOrderFilter({ onFilterChange }: WorkOrderFilterProps) {
           onFilterChange({ search, status, priority, source: v as WorkOrderSource | "all" });
         }}
       >
-        <SelectTrigger className="w-36">
+        <SelectTrigger className="w-36 h-9">
           <SelectValue placeholder="来源" />
         </SelectTrigger>
         <SelectContent>
@@ -101,8 +101,9 @@ export function WorkOrderFilter({ onFilterChange }: WorkOrderFilterProps) {
         </SelectContent>
       </Select>
       <Button
-        variant="outline"
+        variant="ghost"
         size="sm"
+        className="h-9 px-3 text-muted-foreground hover:text-foreground"
         onClick={() => {
           setSearch("");
           setStatus("all");

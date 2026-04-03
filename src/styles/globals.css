@@ -145,4 +145,36 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Table row hover effect */
+  tr:hover td {
+    @apply bg-muted/40;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+
+  /* Stat card hover */
+  .stat-card {
+    @apply transition-all duration-200;
+  }
+
+  .stat-card:hover {
+    @apply shadow-md -translate-y-0.5;
+  }
 }

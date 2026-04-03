@@ -47,19 +47,19 @@ export function WorkOrderTable({ data, onEdit }: WorkOrderTableProps) {
   });
 
   return (
-    <div className="rounded-xl border border-border overflow-hidden">
+    <div className="rounded-xl border border-border bg-card overflow-hidden">
       <Table>
         <TableHeader>
-          <TableRow>
-            <TableHead className="w-[140px] font-mono">工单编号</TableHead>
-            <TableHead className="w-[120px]">设备编号</TableHead>
-            <TableHead>工单标题</TableHead>
-            <TableHead className="w-[100px]">工单状态</TableHead>
-            <TableHead className="w-[80px]">优先级</TableHead>
-            <TableHead className="w-[100px]">来源</TableHead>
-            <TableHead className="w-[100px]">执行人</TableHead>
-            <TableHead className="w-[140px]">创建时间</TableHead>
-            <TableHead className="w-[80px] text-right">操作</TableHead>
+          <TableRow className="hover:bg-transparent border-b">
+            <TableHead className="w-[140px] font-mono text-xs uppercase tracking-wider text-muted-foreground/70">工单编号</TableHead>
+            <TableHead className="w-[120px] text-xs uppercase tracking-wider text-muted-foreground/70">设备编号</TableHead>
+            <TableHead className="text-xs uppercase tracking-wider text-muted-foreground/70">工单标题</TableHead>
+            <TableHead className="w-[100px] text-xs uppercase tracking-wider text-muted-foreground/70">工单状态</TableHead>
+            <TableHead className="w-[80px] text-xs uppercase tracking-wider text-muted-foreground/70">优先级</TableHead>
+            <TableHead className="w-[100px] text-xs uppercase tracking-wider text-muted-foreground/70">来源</TableHead>
+            <TableHead className="w-[100px] text-xs uppercase tracking-wider text-muted-foreground/70">执行人</TableHead>
+            <TableHead className="w-[140px] text-xs uppercase tracking-wider text-muted-foreground/70">创建时间</TableHead>
+            <TableHead className="w-[80px] text-right text-xs uppercase tracking-wider text-muted-foreground/70">操作</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -71,7 +71,7 @@ export function WorkOrderTable({ data, onEdit }: WorkOrderTableProps) {
             </TableRow>
           ) : (
             sorted.map((item) => (
-              <TableRow key={item.id}>
+              <TableRow key={item.id} className="transition-colors cursor-pointer">
                 <TableCell className="font-mono text-sm">{item.workOrderCode}</TableCell>
                 <TableCell className="font-mono text-sm">{item.assetCode}</TableCell>
                 <TableCell className="font-medium max-w-[200px] truncate">{item.title}</TableCell>
@@ -108,11 +108,11 @@ export function WorkOrderTable({ data, onEdit }: WorkOrderTableProps) {
                 <TableCell className="text-right">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="icon" className="h-8 w-8">
+                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
                         <MoreHorizontal className="h-4 w-4" />
                       </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
+                    <DropdownMenuContent align="end" className="w-32">
                       <DropdownMenuItem asChild>
                         <Link
                           to="/work-orders/$id"

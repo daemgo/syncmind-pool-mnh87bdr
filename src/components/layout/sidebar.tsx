@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import {
-  LayoutDashboard,
   Settings,
   ChevronLeft,
   ChevronRight,
@@ -12,6 +11,7 @@ import {
   Monitor,
   BarChart3,
   Plug,
+  LayoutDashboard,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -43,20 +43,36 @@ export function Sidebar() {
   return (
     <aside
       className={cn(
-        "fixed left-0 top-0 z-40 h-screen bg-white border-r border-border transition-all duration-200 flex flex-col",
+        "fixed left-0 top-0 z-40 h-screen bg-card border-r border-border transition-all duration-300 ease-in-out flex flex-col",
         collapsed ? "w-16" : "w-60"
       )}
     >
       {/* Header */}
-      <div className="flex items-center justify-between h-14 px-3 border-b border-border shrink-0">
+      <div className={cn(
+        "flex items-center h-14 border-b border-border shrink-0",
+        collapsed ? "justify-center px-2" : "justify-between px-4"
+      )}>
         {!collapsed && (
-          <span className="text-base font-semibold text-foreground truncate">
-            EAM 管理系统
-          </span>
+          <div className="flex items-center gap-2">
+            <div className="h-7 w-7 rounded-lg bg-primary flex items-center justify-center">
+              <LayoutDashboard className="h-4 w-4 text-primary-foreground" />
+            </div>
+            <span className="text-base font-semibold text-foreground">
+              EAM
+            </span>
+          </div>
+        )}
+        {collapsed && (
+          <div className="h-7 w-7 rounded-lg bg-primary flex items-center justify-center">
+            <LayoutDashboard className="h-4 w-4 text-primary-foreground" />
+          </div>
         )}
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className="ml-auto p-1.5 rounded-lg hover:bg-accent text-muted-foreground transition-colors"
+          className={cn(
+            "p-1.5 rounded-lg hover:bg-accent text-muted-foreground transition-colors",
+            collapsed && "mt-1"
+          )}
           aria-label={collapsed ? "展开侧边栏" : "折叠侧边栏"}
         >
           {collapsed ? (
@@ -68,15 +84,18 @@ export function Sidebar() {
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 overflow-y-auto py-3 px-2 space-y-5">
+      <nav className="flex-1 overflow-y-auto py-4 px-2 space-y-6">
         {menuGroups.map((group) => (
           <div key={group.label}>
             {!collapsed && (
-              <p className="px-2 mb-1.5 text-xs font-medium text-muted-foreground uppercase tracking-wider">
+              <p className="px-3 mb-2 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
                 {group.label}
               </p>
             )}
-            <ul className="space-y-0.5">
+            {collapsed && (
+              <div className="w-8 h-px bg-border mx-auto mb-2" />
+            )}
+            <ul className="space-y-1">
               {group.items.map((item) => {
                 const isActive = location.pathname === item.path;
                 const Icon = item.icon;
@@ -85,16 +104,23 @@ export function Sidebar() {
                     <Link
                       to={item.path}
                       className={cn(
-                        "flex items-center gap-2.5 px-2 py-2 rounded-lg text-sm font-medium transition-colors",
+                        "group flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200",
                         isActive
-                          ? "bg-primary text-primary-foreground"
-                          : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                          ? "bg-primary text-primary-foreground shadow-sm"
+                          : "text-muted-foreground hover:bg-accent hover:text-foreground",
+                        collapsed && "justify-center px-0"
                       )}
                       title={collapsed ? item.label : undefined}
                     >
-                      <Icon className="h-4 w-4 shrink-0" />
+                      <Icon className={cn(
+                        "h-[18px] w-[18px] shrink-0 transition-transform duration-200",
+                        !isActive && "group-hover:scale-110"
+                      )} />
                       {!collapsed && (
                         <span className="truncate">{item.label}</span>
+                      )}
+                      {isActive && !collapsed && (
+                        <span className="ml-auto h-1.5 w-1.5 rounded-full bg-primary-foreground/50" />
                       )}
                     </Link>
                   </li>
@@ -104,6 +130,24 @@ export function Sidebar() {
           </div>
         ))}
       </nav>
+
+      {/* Footer */}
+      <div className="shrink-0 p-3 border-t border-border">
+        <div className={cn(
+          "flex items-center rounded-lg bg-muted/50 p-2",
+          collapsed && "justify-center p-2"
+        )}>
+          <div className="h-7 w-7 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+            <span className="text-xs font-medium text-primary">管</span>
+          </div>
+          {!collapsed && (
+            <div className="ml-2 min-w-0">
+              <p className="text-xs font-medium truncate">系统管理员</p>
+              <p className="text-[10px] text-muted-foreground truncate">admin@changji.com</p>
+            </div>
+          )}
+        </div>
+      </div>
     </aside>
   );
 }

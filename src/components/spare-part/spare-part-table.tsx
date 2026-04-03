@@ -45,18 +45,18 @@ export function SparePartTable({ data, onEdit, onInbound, onOutbound }: SparePar
   };
 
   return (
-    <div className="rounded-xl border border-border overflow-hidden">
+    <div className="rounded-xl border border-border bg-card overflow-hidden">
       <Table>
         <TableHeader>
-          <TableRow>
-            <TableHead className="w-[120px] font-mono">备件编号</TableHead>
-            <TableHead className="w-[180px]">备件名称</TableHead>
-            <TableHead className="w-[100px]">备件分类</TableHead>
-            <TableHead className="w-[100px] text-right">当前库存</TableHead>
-            <TableHead className="w-[100px] text-right">安全库存</TableHead>
-            <TableHead className="w-[80px]">库存状态</TableHead>
-            <TableHead className="w-[100px] text-right">关联设备</TableHead>
-            <TableHead className="w-[80px] text-right">操作</TableHead>
+          <TableRow className="hover:bg-transparent border-b">
+            <TableHead className="w-[120px] font-mono text-xs uppercase tracking-wider text-muted-foreground/70">备件编号</TableHead>
+            <TableHead className="w-[180px] text-xs uppercase tracking-wider text-muted-foreground/70">备件名称</TableHead>
+            <TableHead className="w-[100px] text-xs uppercase tracking-wider text-muted-foreground/70">备件分类</TableHead>
+            <TableHead className="w-[100px] text-right text-xs uppercase tracking-wider text-muted-foreground/70">当前库存</TableHead>
+            <TableHead className="w-[100px] text-right text-xs uppercase tracking-wider text-muted-foreground/70">安全库存</TableHead>
+            <TableHead className="w-[80px] text-xs uppercase tracking-wider text-muted-foreground/70">库存状态</TableHead>
+            <TableHead className="w-[100px] text-right text-xs uppercase tracking-wider text-muted-foreground/70">关联设备</TableHead>
+            <TableHead className="w-[80px] text-right text-xs uppercase tracking-wider text-muted-foreground/70">操作</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -70,7 +70,7 @@ export function SparePartTable({ data, onEdit, onInbound, onOutbound }: SparePar
             data.map((item) => {
               const stock = getStockStatus(item);
               return (
-                <TableRow key={item.id}>
+                <TableRow key={item.id} className="transition-colors cursor-pointer">
                   <TableCell className="font-mono text-sm">{item.partCode}</TableCell>
                   <TableCell className="font-medium">{item.partName}</TableCell>
                   <TableCell>
@@ -94,11 +94,11 @@ export function SparePartTable({ data, onEdit, onInbound, onOutbound }: SparePar
                   <TableCell className="text-right">
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
+                        <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
                           <MoreHorizontal className="h-4 w-4" />
                         </Button>
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
+                      <DropdownMenuContent align="end" className="w-32">
                         <DropdownMenuItem asChild>
                           <Link
                             to="/spare-parts/$id"

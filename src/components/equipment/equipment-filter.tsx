@@ -29,9 +29,9 @@ export function EquipmentFilter({ onFilterChange }: EquipmentFilterProps) {
   };
 
   return (
-    <div className="flex flex-wrap gap-3 p-4 bg-card rounded-xl border border-border">
+    <div className="flex flex-wrap items-center gap-3 p-4 bg-card rounded-xl border border-border">
       <div className="relative flex-1 min-w-48">
-        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
           placeholder="搜索设备编号、名称..."
           value={search}
@@ -39,7 +39,7 @@ export function EquipmentFilter({ onFilterChange }: EquipmentFilterProps) {
             setSearch(e.target.value);
             onFilterChange({ search: e.target.value, workshop, status });
           }}
-          className="pl-9"
+          className="pl-9 h-9"
         />
       </div>
       <Select
@@ -49,7 +49,7 @@ export function EquipmentFilter({ onFilterChange }: EquipmentFilterProps) {
           onFilterChange({ search, workshop: v as Workshop | "all", status });
         }}
       >
-        <SelectTrigger className="w-36">
+        <SelectTrigger className="w-36 h-9">
           <SelectValue placeholder="所属车间" />
         </SelectTrigger>
         <SelectContent>
@@ -67,7 +67,7 @@ export function EquipmentFilter({ onFilterChange }: EquipmentFilterProps) {
           onFilterChange({ search, workshop, status: v as EquipmentStatus | "all" });
         }}
       >
-        <SelectTrigger className="w-36">
+        <SelectTrigger className="w-36 h-9">
           <SelectValue placeholder="设备状态" />
         </SelectTrigger>
         <SelectContent>
@@ -80,8 +80,9 @@ export function EquipmentFilter({ onFilterChange }: EquipmentFilterProps) {
         </SelectContent>
       </Select>
       <Button
-        variant="outline"
+        variant="ghost"
         size="sm"
+        className="h-9 px-3 text-muted-foreground hover:text-foreground"
         onClick={() => {
           setSearch("");
           setWorkshop("all");

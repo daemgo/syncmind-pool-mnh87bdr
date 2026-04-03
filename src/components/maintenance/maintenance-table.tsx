@@ -46,17 +46,17 @@ export function MaintenanceTable({ data, onEdit, onExecute }: MaintenanceTablePr
   });
 
   return (
-    <div className="rounded-xl border border-border overflow-hidden">
+    <div className="rounded-xl border border-border bg-card overflow-hidden">
       <Table>
         <TableHeader>
-          <TableRow>
-            <TableHead className="w-[120px] font-mono">设备编号</TableHead>
-            <TableHead className="w-[200px]">设备名称</TableHead>
-            <TableHead>维护内容</TableHead>
-            <TableHead className="w-[100px]">维护周期</TableHead>
-            <TableHead className="w-[120px]">下次维护日期</TableHead>
-            <TableHead className="w-[120px]">计划状态</TableHead>
-            <TableHead className="w-[80px] text-right">操作</TableHead>
+          <TableRow className="hover:bg-transparent border-b">
+            <TableHead className="w-[120px] font-mono text-xs uppercase tracking-wider text-muted-foreground/70">设备编号</TableHead>
+            <TableHead className="w-[200px] text-xs uppercase tracking-wider text-muted-foreground/70">设备名称</TableHead>
+            <TableHead className="text-xs uppercase tracking-wider text-muted-foreground/70">维护内容</TableHead>
+            <TableHead className="w-[100px] text-xs uppercase tracking-wider text-muted-foreground/70">维护周期</TableHead>
+            <TableHead className="w-[120px] text-xs uppercase tracking-wider text-muted-foreground/70">下次维护日期</TableHead>
+            <TableHead className="w-[120px] text-xs uppercase tracking-wider text-muted-foreground/70">计划状态</TableHead>
+            <TableHead className="w-[80px] text-right text-xs uppercase tracking-wider text-muted-foreground/70">操作</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -68,7 +68,7 @@ export function MaintenanceTable({ data, onEdit, onExecute }: MaintenanceTablePr
             </TableRow>
           ) : (
             sorted.map((item) => (
-              <TableRow key={item.id}>
+              <TableRow key={item.id} className="transition-colors cursor-pointer">
                 <TableCell className="font-mono text-sm">{item.assetCode}</TableCell>
                 <TableCell className="font-medium">{item.assetName}</TableCell>
                 <TableCell className="text-sm text-muted-foreground max-w-[200px] truncate">
@@ -96,11 +96,11 @@ export function MaintenanceTable({ data, onEdit, onExecute }: MaintenanceTablePr
                 <TableCell className="text-right">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="icon" className="h-8 w-8">
+                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
                         <MoreHorizontal className="h-4 w-4" />
                       </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
+                    <DropdownMenuContent align="end" className="w-32">
                       <DropdownMenuItem asChild>
                         <Link
                           to="/maintenance/$id"

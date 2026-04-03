@@ -31,9 +31,9 @@ export function SparePartFilter({ onFilterChange }: SparePartFilterProps) {
   };
 
   return (
-    <div className="flex flex-wrap gap-3 p-4 bg-card rounded-xl border border-border">
+    <div className="flex flex-wrap items-center gap-3 p-4 bg-card rounded-xl border border-border">
       <div className="relative flex-1 min-w-48">
-        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
           placeholder="搜索备件编号、名称..."
           value={search}
@@ -41,7 +41,7 @@ export function SparePartFilter({ onFilterChange }: SparePartFilterProps) {
             setSearch(e.target.value);
             onFilterChange({ search: e.target.value, category, stockStatus });
           }}
-          className="pl-9"
+          className="pl-9 h-9"
         />
       </div>
       <Select
@@ -51,7 +51,7 @@ export function SparePartFilter({ onFilterChange }: SparePartFilterProps) {
           onFilterChange({ search, category: v as SpareCategory | "all", stockStatus });
         }}
       >
-        <SelectTrigger className="w-32">
+        <SelectTrigger className="w-32 h-9">
           <SelectValue placeholder="备件分类" />
         </SelectTrigger>
         <SelectContent>
@@ -70,7 +70,7 @@ export function SparePartFilter({ onFilterChange }: SparePartFilterProps) {
           onFilterChange({ search, category, stockStatus: v as "normal" | "warning" | "out" | "all" });
         }}
       >
-        <SelectTrigger className="w-36">
+        <SelectTrigger className="w-36 h-9">
           <SelectValue placeholder="库存状态" />
         </SelectTrigger>
         <SelectContent>
@@ -81,8 +81,9 @@ export function SparePartFilter({ onFilterChange }: SparePartFilterProps) {
         </SelectContent>
       </Select>
       <Button
-        variant="outline"
+        variant="ghost"
         size="sm"
+        className="h-9 px-3 text-muted-foreground hover:text-foreground"
         onClick={() => {
           setSearch("");
           setCategory("all");

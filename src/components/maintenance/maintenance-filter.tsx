@@ -25,9 +25,9 @@ export function MaintenanceFilter({ onFilterChange }: MaintenanceFilterProps) {
   const [planStatus, setPlanStatus] = useState<PlanStatus | "all">("all");
 
   return (
-    <div className="flex flex-wrap gap-3 p-4 bg-card rounded-xl border border-border">
+    <div className="flex flex-wrap items-center gap-3 p-4 bg-card rounded-xl border border-border">
       <div className="relative flex-1 min-w-48">
-        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
           placeholder="搜索设备编号、名称..."
           value={search}
@@ -35,7 +35,7 @@ export function MaintenanceFilter({ onFilterChange }: MaintenanceFilterProps) {
             setSearch(e.target.value);
             onFilterChange({ search: e.target.value, cycle, planStatus });
           }}
-          className="pl-9"
+          className="pl-9 h-9"
         />
       </div>
       <Select
@@ -45,7 +45,7 @@ export function MaintenanceFilter({ onFilterChange }: MaintenanceFilterProps) {
           onFilterChange({ search, cycle: v as MaintenanceCycle | "all", planStatus });
         }}
       >
-        <SelectTrigger className="w-40">
+        <SelectTrigger className="w-40 h-9">
           <SelectValue placeholder="维护周期" />
         </SelectTrigger>
         <SelectContent>
@@ -66,7 +66,7 @@ export function MaintenanceFilter({ onFilterChange }: MaintenanceFilterProps) {
           onFilterChange({ search, cycle, planStatus: v as PlanStatus | "all" });
         }}
       >
-        <SelectTrigger className="w-36">
+        <SelectTrigger className="w-36 h-9">
           <SelectValue placeholder="计划状态" />
         </SelectTrigger>
         <SelectContent>
@@ -77,8 +77,9 @@ export function MaintenanceFilter({ onFilterChange }: MaintenanceFilterProps) {
         </SelectContent>
       </Select>
       <Button
-        variant="outline"
+        variant="ghost"
         size="sm"
+        className="h-9 px-3 text-muted-foreground hover:text-foreground"
         onClick={() => {
           setSearch("");
           setCycle("all");
