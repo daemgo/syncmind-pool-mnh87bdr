@@ -40,7 +40,7 @@ const DEMO_USERS: Record<string, { password: string; user: User }> = {
     },
   },
   viewer: {
-    password: "view123",
+    password: "viewer123",
     user: {
       id: "3",
       username: "viewer",
