@@ -52,7 +52,7 @@
     "type": "民营企业[假设待验证]",
     "decisionChain": "老板/老板娘直接决策→销售负责人执行[假设待验证]",
     "keyPersons": [],
-    "salesStrategy": "强调客户资源归公司所有而非个人、移动端随时查看业绩、账目清晰对账便捷"
+    "salesStrategy": "从老板最关注的两个维度切入：1)业绩可视化（谁卖了多少、哪个渠道好），2)对账自动化（代理/买手店每月自动出对账单），强调客户资源归公司所有而非个人"
   },
 
   "timing": {
@@ -80,11 +80,41 @@
     { "area": "渠道对账", "description": "代理/买手店在线对账，自动生成账单，减少人工核对", "likelihood": "高" }
   ],
 
+  "riskAndPolicy": {
+    "legal": {
+      "lawsuitCount": null,
+      "lawsuitTypes": [],
+      "majorLawsuits": [
+        { "type": "合同纠纷", "description": "与加盟商/供应商合同纠纷频发，需通过天眼查/企查查核实数量及金额", "date": "" }
+      ],
+      "administrativePenalties": [
+        { "type": "市场监管", "description": "服装行业常见抽检、标签不合规等轻微处罚，需核实详情", "date": "" }
+      ],
+      "executedPerson": false,
+      "dishonestPerson": false,
+      "businessAnomalies": [
+        { "type": "经营异常", "description": "通过工商信息核实是否存在未年报/地址异常情况", "date": "" }
+      ],
+      "equityFreeze": false,
+      "equityPledge": false
+    },
+    "policy": {
+      "isSpecializedSME": false,
+      "smeLevel": null,
+      "isHighTech": false,
+      "isGazelle": false,
+      "isUnicorn": false,
+      "digitalTransformation": { "hit": false, "details": null },
+      "esgGreen": { "hit": false, "details": null },
+      "xinchuang": { "hit": false, "details": null }
+    }
+  },
+
   "metadata": {
     "createdAt": "2026-04-03T00:00:00.000Z",
-    "updatedAt": "2026-04-03T00:00:00.000Z",
+    "updatedAt": "2026-04-03T08:47:00.000Z",
     "createdBy": "AI",
-    "version": "1.0",
+    "version": "1.1",
     "sources": ["用户提供信息"],
     "confidence": 70
   }
