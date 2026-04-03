@@ -54,23 +54,23 @@ export function Sidebar() {
       )}>
         {!collapsed && (
           <div className="flex items-center gap-2">
-            <div className="h-7 w-7 rounded-lg bg-primary flex items-center justify-center">
+            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-sm">
               <LayoutDashboard className="h-4 w-4 text-primary-foreground" />
             </div>
-            <span className="text-base font-semibold text-foreground">
+            <span className="text-base font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
               EAM
             </span>
           </div>
         )}
         {collapsed && (
-          <div className="h-7 w-7 rounded-lg bg-primary flex items-center justify-center">
+          <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-sm">
             <LayoutDashboard className="h-4 w-4 text-primary-foreground" />
           </div>
         )}
         <button
           onClick={() => setCollapsed(!collapsed)}
           className={cn(
-            "p-1.5 rounded-lg hover:bg-accent text-muted-foreground transition-colors",
+            "p-1.5 rounded-lg hover:bg-accent text-muted-foreground transition-all duration-200 hover:scale-110",
             collapsed && "mt-1"
           )}
           aria-label={collapsed ? "展开侧边栏" : "折叠侧边栏"}
@@ -84,16 +84,16 @@ export function Sidebar() {
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 overflow-y-auto py-4 px-2 space-y-6">
+      <nav className="flex-1 overflow-y-auto py-4 px-2 space-y-5">
         {menuGroups.map((group) => (
           <div key={group.label}>
             {!collapsed && (
-              <p className="px-3 mb-2 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
+              <p className="px-3 mb-3 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
                 {group.label}
               </p>
             )}
             {collapsed && (
-              <div className="w-8 h-px bg-border mx-auto mb-2" />
+              <div className="w-8 h-px bg-gradient-to-r from-transparent via-border to-transparent mx-auto mb-3" />
             )}
             <ul className="space-y-1">
               {group.items.map((item) => {
@@ -106,7 +106,7 @@ export function Sidebar() {
                       className={cn(
                         "group flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200",
                         isActive
-                          ? "bg-primary text-primary-foreground shadow-sm"
+                          ? "bg-gradient-to-r from-primary/10 to-primary/5 text-primary border-l-2 border-primary shadow-sm"
                           : "text-muted-foreground hover:bg-accent hover:text-foreground",
                         collapsed && "justify-center px-0"
                       )}
@@ -114,13 +114,13 @@ export function Sidebar() {
                     >
                       <Icon className={cn(
                         "h-[18px] w-[18px] shrink-0 transition-transform duration-200",
-                        !isActive && "group-hover:scale-110"
+                        !isActive && "group-hover:scale-110 group-hover:text-primary"
                       )} />
                       {!collapsed && (
                         <span className="truncate">{item.label}</span>
                       )}
                       {isActive && !collapsed && (
-                        <span className="ml-auto h-1.5 w-1.5 rounded-full bg-primary-foreground/50" />
+                        <span className="ml-auto h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
                       )}
                     </Link>
                   </li>
@@ -132,12 +132,12 @@ export function Sidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="shrink-0 p-3 border-t border-border">
+      <div className="shrink-0 p-3 border-t border-border/50">
         <div className={cn(
-          "flex items-center rounded-lg bg-muted/50 p-2",
+          "flex items-center rounded-lg bg-gradient-to-r from-muted/50 to-muted/30 p-2 transition-all duration-200",
           collapsed && "justify-center p-2"
         )}>
-          <div className="h-7 w-7 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
             <span className="text-xs font-medium text-primary">管</span>
           </div>
           {!collapsed && (

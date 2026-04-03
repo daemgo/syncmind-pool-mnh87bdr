@@ -171,11 +171,26 @@
 
   /* Stat card hover */
   .stat-card {
-    @apply transition-all duration-200;
+    @apply transition-all duration-300;
   }
 
   .stat-card:hover {
-    @apply shadow-md -translate-y-0.5;
+    @apply shadow-lg -translate-y-1;
+  }
+
+  /* Gradient stat cards */
+  .stat-card-gradient {
+    @apply relative overflow-hidden;
+  }
+
+  .stat-card-gradient::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, var(--primary) 0%, transparent 60%);
+  }
+
+  .stat-card-gradient:hover::before {
+    @apply opacity-10;
   }
 
   /* Content container - max width for readability */
@@ -190,11 +205,15 @@
 
   /* Page header */
   .page-header {
-    @apply flex flex-col gap-1;
+    @apply flex flex-col gap-1 mb-2;
   }
 
   .page-title {
-    @apply text-2xl font-semibold tracking-tight;
+    @apply text-2xl font-bold tracking-tight;
+    background: linear-gradient(to right, var(--foreground), var(--foreground) / 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .page-description {
@@ -218,5 +237,161 @@
   /* Chart tooltip */
   .recharts-tooltip-wrapper {
     filter: drop-shadow(0 4px 6px -1px rgb(0 0 0 / 0.1));
+  }
+
+  /* ====== Page Animations ====== */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes countUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .page-enter {
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  .page-enter-delay-1 {
+    animation: fadeIn 0.4s ease-out 0.1s both;
+  }
+
+  .page-enter-delay-2 {
+    animation: fadeIn 0.4s ease-out 0.2s both;
+  }
+
+  .page-enter-delay-3 {
+    animation: fadeIn 0.4s ease-out 0.3s both;
+  }
+
+  .page-enter-delay-4 {
+    animation: fadeIn 0.4s ease-out 0.4s both;
+  }
+
+  /* Staggered chart animation */
+  .chart-enter {
+    animation: fadeIn 0.5s ease-out both;
+  }
+
+  .chart-enter-delay-1 {
+    animation-delay: 0.15s;
+  }
+
+  .chart-enter-delay-2 {
+    animation-delay: 0.3s;
+  }
+
+  /* Number counter animation */
+  .stat-number {
+    animation: countUp 0.6s ease-out both;
+  }
+
+  /* Pulse indicator for live data */
+  .pulse-dot {
+    @apply relative;
+  }
+
+  .pulse-dot::after {
+    content: '';
+    @apply absolute inset-0 rounded-full animate-ping;
+    background: inherit;
+    opacity: 0.5;
+  }
+
+  /* Card glassmorphism */
+  .card-glass {
+    @apply backdrop-blur-sm;
+    background: linear-gradient(
+      135deg,
+      oklch(1 0 0 / 0.8) 0%,
+      oklch(1 0 0 / 0.4) 100%
+    );
+  }
+
+  .dark .card-glass {
+    background: linear-gradient(
+      135deg,
+      oklch(0.17 0.015 260 / 0.8) 0%,
+      oklch(0.17 0.015 260 / 0.4) 100%
+    );
+  }
+
+  /* Better focus ring */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary/50 ring-offset-2 ring-offset-background;
+  }
+
+  /* Improved table styling */
+  table {
+    @apply border-collapse;
+  }
+
+  th {
+    @apply text-left font-medium text-xs uppercase tracking-wider text-muted-foreground bg-muted/30;
+  }
+
+  td {
+    @apply py-3;
+  }
+
+  tbody tr {
+    @apply border-b border-border/50 last:border-0;
+  }
+
+  tbody tr:hover {
+    @apply bg-muted/40;
+  }
+
+  /* Badge improvements */
+  .badge-glow {
+    @apply shadow-sm;
+  }
+
+  .badge-glow:hover {
+    @apply shadow-md;
+  }
+
+  /* Sidebar active indicator */
+  .sidebar-active-indicator {
+    @apply relative;
+  }
+
+  .sidebar-active-indicator::before {
+    content: '';
+    @apply absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 rounded-r-full bg-primary;
   }
 }

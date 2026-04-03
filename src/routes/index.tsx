@@ -96,7 +96,7 @@ export function DashboardPage() {
 
   return (
     <div className="page-section">
-      <div className="page-header">
+      <div className="page-header page-enter">
         <h1 className="page-title">监控大屏</h1>
         <p className="page-description">
           实时掌握全厂设备运行状态
@@ -105,31 +105,31 @@ export function DashboardPage() {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="stat-card card-hover">
+        <Card className="stat-card stat-card-gradient card-hover page-enter-delay-1">
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground">设备总数</p>
-                <p className="text-3xl font-semibold mt-1 tabular-nums">{equipmentMock.length}</p>
+                <p className="text-3xl font-bold mt-1 tabular-nums bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">{equipmentMock.length}</p>
                 <p className="text-xs text-muted-foreground mt-1">
                   <span className="text-green-600 dark:text-green-400 font-medium">{runningCount} 运行</span>
                   {" · "}
                   <span className="text-amber-600 dark:text-amber-400 font-medium">{stoppedCount} 停机</span>
                 </p>
               </div>
-              <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+              <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 shadow-sm">
                 <Cpu className="h-6 w-6 text-primary" />
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="stat-card card-hover">
+        <Card className="stat-card stat-card-gradient card-hover page-enter-delay-2">
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground">活跃工单</p>
-                <p className="text-3xl font-semibold mt-1 tabular-nums">{activeWorkOrders}</p>
+                <p className="text-3xl font-bold mt-1 tabular-nums bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">{activeWorkOrders}</p>
                 <p className="text-xs text-muted-foreground mt-1">
                   {urgentWorkOrders > 0 && (
                     <span className="text-red-600 dark:text-red-400 font-medium">
@@ -139,37 +139,37 @@ export function DashboardPage() {
                   {urgentWorkOrders === 0 && <span>无紧急工单</span>}
                 </p>
               </div>
-              <div className="h-12 w-12 rounded-xl bg-violet-500/10 flex items-center justify-center shrink-0">
+              <div className="h-12 w-12 rounded-xl bg-violet-500/10 flex items-center justify-center shrink-0 shadow-sm">
                 <Wrench className="h-6 w-6 text-violet-600 dark:text-violet-400" />
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="stat-card card-hover">
+        <Card className="stat-card stat-card-gradient card-hover page-enter-delay-3">
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground">综合OEE</p>
-                <p className="text-3xl font-semibold mt-1 tabular-nums">{currentOEE}%</p>
+                <p className="text-3xl font-bold mt-1 tabular-nums bg-gradient-to-br from-emerald-600 to-emerald-500 bg-clip-text text-transparent">{currentOEE}%</p>
                 <p className="text-xs text-green-600 dark:text-green-400 font-medium mt-1 flex items-center gap-1">
                   <TrendingUp className="h-3 w-3" />
                   较上月 +3%
                 </p>
               </div>
-              <div className="h-12 w-12 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0">
+              <div className="h-12 w-12 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0 shadow-sm">
                 <TrendingUp className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="stat-card card-hover">
+        <Card className="stat-card stat-card-gradient card-hover page-enter-delay-4">
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground">待处理事项</p>
-                <p className="text-3xl font-semibold mt-1 tabular-nums">
+                <p className="text-3xl font-bold mt-1 tabular-nums bg-gradient-to-br from-amber-600 to-amber-500 bg-clip-text text-transparent">
                   {overduePlans + warningParts + outParts}
                 </p>
                 <p className="text-xs text-muted-foreground mt-1">
@@ -191,7 +191,7 @@ export function DashboardPage() {
                   {overduePlans + warningParts + outParts === 0 && <span>暂无异常</span>}
                 </p>
               </div>
-              <div className="h-12 w-12 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0">
+              <div className="h-12 w-12 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0 shadow-sm">
                 <AlertTriangle className="h-6 w-6 text-amber-600 dark:text-amber-400" />
               </div>
             </div>
@@ -201,16 +201,19 @@ export function DashboardPage() {
 
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="card-hover">
+        <Card className="card-hover chart-enter">
           <CardHeader>
-            <CardTitle className="text-base">OEE 趋势（近6个月）</CardTitle>
+            <CardTitle className="text-base flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+              OEE 趋势（近6个月）
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <ChartContainer config={chartConfig} className="h-[280px] w-full">
               <AreaChart data={oeeData}>
                 <defs>
                   <linearGradient id="oeeGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="var(--color-chart-1)" stopOpacity={0.3}/>
+                    <stop offset="5%" stopColor="var(--color-chart-1)" stopOpacity={0.4}/>
                     <stop offset="95%" stopColor="var(--color-chart-1)" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
@@ -230,9 +233,9 @@ export function DashboardPage() {
                   type="monotone"
                   dataKey="oee"
                   stroke="var(--color-chart-1)"
-                  strokeWidth={2}
+                  strokeWidth={2.5}
                   fill="url(#oeeGradient)"
-                  dot={{ fill: "var(--color-chart-1)", r: 4 }}
+                  dot={{ fill: "var(--color-chart-1)", r: 4, strokeWidth: 0 }}
                   activeDot={{ r: 6, stroke: "var(--primary-foreground)", strokeWidth: 2 }}
                 />
               </AreaChart>
@@ -240,13 +243,19 @@ export function DashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="card-hover">
+        <Card className="card-hover chart-enter chart-enter-delay-1">
           <CardHeader>
             <CardTitle className="text-base">设备故障次数排名</CardTitle>
           </CardHeader>
           <CardContent>
             <ChartContainer config={chartConfig} className="h-[280px] w-full">
               <BarChart data={faultData} layout="vertical">
+                <defs>
+                  <linearGradient id="faultGradient" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor="var(--color-chart-1)" stopOpacity={0.8}/>
+                    <stop offset="100%" stopColor="var(--color-chart-1)" stopOpacity={0.3}/>
+                  </linearGradient>
+                </defs>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
                 <XAxis type="number" fontSize={12} tickLine={false} axisLine={false} />
                 <YAxis
@@ -287,24 +296,24 @@ export function DashboardPage() {
       </div>
 
       {/* Recent Work Orders */}
-      <Card className="card-hover">
+      <Card className="card-hover chart-enter chart-enter-delay-2">
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle className="text-base">最新工单</CardTitle>
-            <Link to="/work-orders" className="text-sm text-primary hover:underline transition-opacity">
-              查看全部
+            <Link to="/work-orders" className="text-sm text-primary hover:underline transition-opacity font-medium">
+              查看全部 →
             </Link>
           </div>
         </CardHeader>
         <CardContent>
-          <div className="space-y-3">
+          <div className="space-y-1">
             {workOrderMock.slice(0, 5).map((wo) => (
               <div
                 key={wo.id}
-                className="list-item"
+                className="flex items-center justify-between py-3 px-3 -mx-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
               >
                 <div className="flex items-center gap-3 min-w-0">
-                  <span className="font-mono text-xs text-muted-foreground shrink-0">
+                  <span className="font-mono text-xs text-muted-foreground shrink-0 bg-muted px-2 py-1 rounded">
                     {wo.workOrderCode}
                   </span>
                   <span className="text-sm truncate">{wo.title}</span>
